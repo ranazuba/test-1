@@ -1,69 +1,100 @@
+/* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  #quiz-container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    height: 300px;
-    width: 400px;
-    
-  }
-  #quiz-container input{
-    border: 2px solid black;
-    height: 40px;
-    font-weight: bold;
-    margin-top: 25%;
-  }
-  
-  #question-text {
-    margin-bottom: 20px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #3498db;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #2980b9;
-  }
-  
-  .option {
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #ecf0f1;
-    border: 1px solid #bdc3c7;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .option:hover {
-    background-color: #dcdcdc;
-  }
-  
-  .option.correct {
-    background-color: #2ecc71;
-  }
-  
-  .option.incorrect {
-    background-color: #e74c3c;
-  }
-  .bottom{
-    margin-top: 140px;
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: large;
-  }
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4; /* Light gray background for a clean look */
+}
+.head{
+  display: table-column;
+}
+.heading{}
+/* Quiz Container */
+#quiz-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  text-align: center;
+  width: 400px;
+}
+
+/* Heading Style */
+h1 {
+  font-size: 26px; /* Increased font size for prominence */
+  color: #333;
+  margin-bottom: 20px; /* Space below heading */
+}
+
+/* Input Styling */
+#quiz-container input {
+  border: 2px solid #3498db; /* Use the button color for consistency */
+  height: 40px;
+  width: 300px;
+  font-weight: bold;
+  margin-top: 15px; /* Adjusted for better spacing */
+  padding: 0 10px; /* Padding for input text */
+  border-radius: 5px; /* Rounded input corners */
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Question Text */
+#question-text {
+  font-size: 18px; /* Slightly larger for better readability */
+  margin-bottom: 20px;
+}
+
+/* Button Styling */
+button {
+  padding: 12px 25px; /* More padding for larger buttons */
+  background-color: #3498db; /* Consistent color scheme */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; /* Font size for buttons */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Option Styling */
+.option {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+/* Option Hover Effect */
+.option:hover {
+  background-color: #dcdcdc; /* Slightly darker on hover */
+}
+
+/* Correct Option Styling */
+.option.correct {
+  background-color: #2ecc71; /* Green for correct options */
+}
+
+/* Incorrect Option Styling */
+.option.incorrect {
+  background-color: #e74c3c; /* Red for incorrect options */
+}
+
+/* Bottom Text */
+.bottom {
+  margin-top: 20px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+}

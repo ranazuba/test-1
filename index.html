@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
-    <!-- <link rel="stylesheet" href="bootstrap.css"> -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
+    <!-- Heading moved outside -->
+    
+    
+    
     <div id="quiz-container">
         <div id="start-screen">
-            <input type="text" id="name-input" placeholder="Enter your name" /><br>
+            <input type="text" id="name-input" placeholder="Enter your name" /><br><br>
             <button id="start-btn">Start Quiz</button>
-    
         </div>
 
         <div id="quiz-screen" style="display: none;">
@@ -27,9 +28,18 @@
             <p id="result-text"></p>
             <button id="restart-btn">Restart Quiz</button>
         </div>
-        <p class="bottom">Devleoped By Zubair Cs Expert</p>
+
+        <!-- Theory Screen -->
+        <div id="theory-screen" style="display: none;">
+            <h2>Theory Questions</h2>
+            <div id="theory-container"></div>
+            <button id="restart-theory-btn">Restart Quiz</button>
+        </div>
+        
+        <p class="bottom">Developed By Zubair CS Expert</p>
+        <h5 class="heading">Welcome To National Polytechnic Institute Bhakkar</h5>
     </div>
-<script src="bootstrap.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>
