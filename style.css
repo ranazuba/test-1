@@ -7,11 +7,7 @@ body {
   height: 100vh;
   background-color: #f4f4f4; /* Light gray background for a clean look */
 }
-.head{
-  display: table-column;
-}
-.heading{}
-/* Quiz Container */
+
 #quiz-container {
   background: white;
   padding: 20px;
