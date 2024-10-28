@@ -12,31 +12,31 @@ const restartButton = document.getElementById('restart-btn');
 
 // Questions Array
 const questions = [
-    { question: "What is the shortcut key for 'Copy' in MS Word?", options: ["Ctrl + V", "Ctrl + X", "Ctrl + A", "Ctrl + C"], answer: "Ctrl + C" },
-    { question: "What is the shortcut key for 'Paste' in MS Word?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + Z", "Ctrl + V"], answer: "Ctrl + V" },
-    { question: "What is the shortcut key for 'Cut' in MS Word?", options: ["Ctrl + C", "Ctrl + V", "Ctrl + Y", "Ctrl + X"], answer: "Ctrl + X" },
-    { question: "What is the shortcut key for 'Undo' in MS Word?", options: ["Ctrl + Y", "Ctrl + S", "Ctrl + P", "Ctrl + Z"], answer: "Ctrl + Z" },
-    { question: "What is the shortcut key for 'Save' in MS Word?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + Q", "Ctrl + S"], answer: "Ctrl + S" },
-    { question: "What is the shortcut key for 'Print' in MS Word?", options: ["Ctrl + Q", "Ctrl + S", "Ctrl + R", "Ctrl + P"], answer: "Ctrl + P" },
-    { question: "What is the shortcut key for 'Select All' in MS Word?", options: ["Ctrl + C", "Ctrl + D", "Ctrl + F", "Ctrl + A"], answer: "Ctrl + A" },
-    { question: "What is the shortcut key for 'Bold' in MS Word?", options: ["Ctrl + I", "Ctrl + U", "Ctrl + H", "Ctrl + B"], answer: "Ctrl + B" },
-    { question: "What is the shortcut key for 'Italic' in MS Word?", options: ["Ctrl + B", "Ctrl + U", "Ctrl + V", "Ctrl + I"], answer: "Ctrl + I" },
-    { question: "What is the shortcut key for 'Underline' in MS Word?", options: ["Ctrl + B", "Ctrl + I", "Ctrl + N", "Ctrl + U"], answer: "Ctrl + U" },
-    { question: "What is the shortcut key for 'Find' in MS Word?", options: ["Ctrl + H", "Ctrl + G", "Ctrl + E", "Ctrl + F"], answer: "Ctrl + F" },
-    { question: "What is the shortcut key for 'Replace' in MS Word?", options: ["Ctrl + F", "Ctrl + Z", "Ctrl + P", "Ctrl + H"], answer: "Ctrl + H" },
-    { question: "What is the shortcut key for 'New Document' in MS Word?", options: ["Ctrl + O", "Ctrl + S", "Ctrl + D", "Ctrl + N"], answer: "Ctrl + N" },
-    { question: "What is the shortcut key for 'Open Document' in MS Word?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + R", "Ctrl + O"], answer: "Ctrl + O" },
-    { question: "What is the shortcut key for 'Redo' in MS Word?", options: ["Ctrl + Z", "Ctrl + S", "Ctrl + Q", "Ctrl + Y"], answer: "Ctrl + Y" },
-    { question: "What is the shortcut key for 'Insert Hyperlink' in MS Word?", options: ["Ctrl + J", "Ctrl + L", "Ctrl + M", "Ctrl + K"], answer: "Ctrl + K" },
-    { question: "What is the shortcut key for 'Center Align' in MS Word?", options: ["Ctrl + L", "Ctrl + R", "Ctrl + T", "Ctrl + E"], answer: "Ctrl + E" },
-    { question: "What is the shortcut key for 'Right Align' in MS Word?", options: ["Ctrl + E", "Ctrl + L", "Ctrl + J", "Ctrl + R"], answer: "Ctrl + R" },
-    { question: "What is the shortcut key for 'Left Align' in MS Word?", options: ["Ctrl + R", "Ctrl + E", "Ctrl + J", "Ctrl + L"], answer: "Ctrl + L" },
-    { question: "What is the shortcut key for 'Strikethrough' in MS Word?", options: ["Ctrl + T", "Ctrl + K", "Ctrl + M", "Ctrl + D"], answer: "Ctrl + D" },
-    { question: "What is the shortcut key for 'Create a bullet list' in MS Word?", options: ["Ctrl + L", "Ctrl + B", "Ctrl + R", "Ctrl + Shift + L"], answer: "Ctrl + Shift + L" },
-    { question: "What is the shortcut key for 'Create a numbered list' in MS Word?", options: ["Ctrl + 1", "Ctrl + 2", "Ctrl + 3", "Ctrl + Shift + N"], answer: "Ctrl + Shift + N" },
-    { question: "What is the shortcut key for 'Foot Note' in MS Word?", options: ["Ctrl + Shift + Enter", "Ctrl + B", "Ctrl + U", "Ctrl + Alt + F"], answer: "Ctrl + Alt + F" },
-    { question: "What is the shortcut key for 'Zoom In' in MS Word?", options: ["Ctrl + -", "Ctrl + 0", "Ctrl + Shift + +", "Ctrl + +"], answer: "Ctrl + +" },
-    { question: "What is the shortcut key for 'Zoom Out' in MS Word?", options: ["Ctrl + +", "Ctrl + 0", "Ctrl + Shift + -", "Ctrl + -"], answer: "Ctrl + -" }
+    { question: "1. What is the shortcut key for 'Copy' in MS Word?", options: ["Ctrl + V", "Ctrl + X", "Ctrl + A", "Ctrl + C"], answer: "Ctrl + C" },
+    { question: "2. What is the shortcut key for 'Paste' in MS Word?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + Z", "Ctrl + V"], answer: "Ctrl + V" },
+    { question: "3. What is the shortcut key for 'Cut' in MS Word?", options: ["Ctrl + C", "Ctrl + V", "Ctrl + Y", "Ctrl + X"], answer: "Ctrl + X" },
+    { question: "4. What is the shortcut key for 'Undo' in MS Word?", options: ["Ctrl + Y", "Ctrl + S", "Ctrl + P", "Ctrl + Z"], answer: "Ctrl + Z" },
+    { question: "5. What is the shortcut key for 'Save' in MS Word?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + Q", "Ctrl + S"], answer: "Ctrl + S" },
+    { question: "6. What is the shortcut key for 'Print' in MS Word?", options: ["Ctrl + Q", "Ctrl + S", "Ctrl + R", "Ctrl + P"], answer: "Ctrl + P" },
+    { question: "7. What is the shortcut key for 'Select All' in MS Word?", options: ["Ctrl + C", "Ctrl + D", "Ctrl + F", "Ctrl + A"], answer: "Ctrl + A" },
+    { question: "8. What is the shortcut key for 'Bold' in MS Word?", options: ["Ctrl + I", "Ctrl + U", "Ctrl + H", "Ctrl + B"], answer: "Ctrl + B" },
+    { question: "9. What is the shortcut key for 'Italic' in MS Word?", options: ["Ctrl + B", "Ctrl + U", "Ctrl + V", "Ctrl + I"], answer: "Ctrl + I" },
+    { question: "10. What is the shortcut key for 'Underline' in MS Word?", options: ["Ctrl + B", "Ctrl + I", "Ctrl + N", "Ctrl + U"], answer: "Ctrl + U" },
+    { question: "11. What is the shortcut key for 'Find' in MS Word?", options: ["Ctrl + H", "Ctrl + G", "Ctrl + E", "Ctrl + F"], answer: "Ctrl + F" },
+    { question: "12. What is the shortcut key for 'Replace' in MS Word?", options: ["Ctrl + F", "Ctrl + Z", "Ctrl + P", "Ctrl + H"], answer: "Ctrl + H" },
+    { question: "13. What is the shortcut key for 'New Document' in MS Word?", options: ["Ctrl + O", "Ctrl + S", "Ctrl + D", "Ctrl + N"], answer: "Ctrl + N" },
+    { question: "14. What is the shortcut key for 'Open Document' in MS Word?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + R", "Ctrl + O"], answer: "Ctrl + O" },
+    { question: "15. What is the shortcut key for 'Redo' in MS Word?", options: ["Ctrl + Z", "Ctrl + S", "Ctrl + Q", "Ctrl + Y"], answer: "Ctrl + Y" },
+    { question: "16. What is the shortcut key for 'Insert Hyperlink' in MS Word?", options: ["Ctrl + J", "Ctrl + L", "Ctrl + M", "Ctrl + K"], answer: "Ctrl + K" },
+    { question: "17. What is the shortcut key for 'Center Align' in MS Word?", options: ["Ctrl + L", "Ctrl + R", "Ctrl + T", "Ctrl + E"], answer: "Ctrl + E" },
+    { question: "18. What is the shortcut key for 'Right Align' in MS Word?", options: ["Ctrl + E", "Ctrl + L", "Ctrl + J", "Ctrl + R"], answer: "Ctrl + R" },
+    { question: "19. What is the shortcut key for 'Left Align' in MS Word?", options: ["Ctrl + R", "Ctrl + E", "Ctrl + J", "Ctrl + L"], answer: "Ctrl + L" },
+    { question: "20. What is the shortcut key for 'FootNote' in MS Word?", options: ["Ctrl + Alt + F", "Ctrl + F", "Ctrl + Alt + D", "Ctrl + D"], answer: "Ctrl + D" },
+    { question: "21. What is the shortcut key for 'Create a bullet list' in MS Word?", options: ["Ctrl + L", "Ctrl + B", "Ctrl + R", "Ctrl + Shift + L"], answer: "Ctrl + Shift + L" },
+    { question: "22. What is the shortcut key for 'Create a numbered list' in MS Word?", options: ["Ctrl + 1", "Ctrl + 2", "Ctrl + 3", "Ctrl + Shift + N"], answer: "Ctrl + Shift + N" },
+    { question: "23. What is the shortcut key for 'Foot Note' in MS Word?", options: ["Ctrl + Shift + Enter", "Ctrl + B", "Ctrl + U", "Ctrl + Alt + F"], answer: "Ctrl + Alt + F" },
+    { question: "24. What is the shortcut key for 'Zoom In' in MS Word?", options: ["Ctrl + -", "Ctrl + 0", "Ctrl + Shift + +", "Ctrl + +"], answer: "Ctrl + +" },
+    { question: "25. What is the shortcut key for 'Zoom Out' in MS Word?", options: ["Ctrl + +", "Ctrl + 0", "Ctrl + Shift + -", "Ctrl + -"], answer: "Ctrl + -" }
 ];
 
 // Function to shuffle options for each question
@@ -158,3 +158,70 @@ restartButton.addEventListener('click', () => {
     startScreen.style.display = 'block';
     nameInput.value = '';
 });
+
+function goToTheory() {
+    window.location.href = "theory.html";
+}
+
+// Timer Variables
+let timerInterval;
+let timeRemaining = 600; // 10 minutes in seconds
+
+// Function to start the timer
+function startTimer() {
+    timeRemaining = 900; // Reset to 10 minutes (600 seconds)
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+
+        // Update the timer display
+        document.getElementById('timer').textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        // Check if time has run out
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            showResult(); // Automatically show result when time is up
+        }
+    }, 1000);
+}
+
+// Stop the timer
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+// Start Quiz
+startButton.addEventListener('click', () => {
+    const name = nameInput.value;
+    if (name) {
+        startScreen.style.display = 'none';
+        quizScreen.style.display = 'block';
+        score = 0;
+        currentQuestionIndex = 0;
+        optionSelected = false;
+        showQuestion();
+        startTimer(); // Start the timer when the quiz begins
+    } else {
+        alert('Please enter your name!');
+    }
+});
+
+// Show Result
+function showResult() {
+    stopTimer(); // Stop the timer when showing the result
+    quizScreen.style.display = 'none';
+    resultScreen.style.display = 'block';
+    const name = nameInput.value;
+    resultText.textContent = `${name}, your score is ${score} out of ${questions.length}.`;
+}
+
+// Restart Quiz
+restartButton.addEventListener('click', () => {
+    resultScreen.style.display = 'none';
+    startScreen.style.display = 'block';
+    nameInput.value = '';
+    stopTimer(); // Ensure timer is stopped before restarting
+    document.getElementById('timer').textContent = 'Time Remaining: 15:00'; // Reset timer display
+});
+

@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Heading moved outside -->
-    
-    
-    
     <div id="quiz-container">
+        <h1 class="heading">Welcome To National Polytechnic Institute Bhakkar</h1>
+        <p class="bottom">Developed By Zubair CS Expert</p>
         <div id="start-screen">
-            <input type="text" id="name-input" placeholder="Enter your name" /><br><br>
+            <input type="text" id="name-input" placeholder="Enter your name" /><br>
             <button id="start-btn">Start Quiz</button>
         </div>
+
+        <div id="timer">Time Remaining: 15:00</div>
 
         <div id="quiz-screen" style="display: none;">
             <h2 id="question-text"></h2>
@@ -35,11 +35,11 @@
             <div id="theory-container"></div>
             <button id="restart-theory-btn">Restart Quiz</button>
         </div>
-        
-        <p class="bottom">Developed By Zubair CS Expert</p>
-        <h5 class="heading">Welcome To National Polytechnic Institute Bhakkar</h5>
-    </div>
 
+        <div class="btn">
+            <button onclick="goToTheory()">Next: Theory Questions</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
