@@ -18,8 +18,8 @@ const questions = [
     { question: "4. What is the shortcut key for 'Undo' in MS Word?", options: ["Ctrl + Y", "Ctrl + S", "Ctrl + P", "Ctrl + Z"], answer: "Ctrl + Z" },
     { question: "5. What is the shortcut key for 'Save' in MS Word?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + Q", "Ctrl + S"], answer: "Ctrl + S" },
     { question: "6. What is the shortcut key for 'Print' in MS Word?", options: ["Ctrl + Q", "Ctrl + S", "Ctrl + R", "Ctrl + P"], answer: "Ctrl + P" },
-    { question: "7. What is the shortcut key for 'Select All' in MS Word?", options: ["Ctrl + C", "Ctrl + D", "Ctrl + F", "Ctrl + A"], answer: "Ctrl + A" },
-    { question: "8. What is the shortcut key for 'Bold' in MS Word?", options: ["Ctrl + I", "Ctrl + U", "Ctrl + H", "Ctrl + B"], answer: "Ctrl + B" },
+    { question: "7. What would happen if all computers stopped working?", options: ["Life would be harder", "life will be easier", "Nothing would change", "Everything stop working"], answer: "Life would be harder" },
+    { question: "8. What do you call a person who uses a Computer?", options: ["User", "Programmer", "Engineer", "Employee"], answer: "User" },
     { question: "9. What is the shortcut key for 'Italic' in MS Word?", options: ["Ctrl + B", "Ctrl + U", "Ctrl + V", "Ctrl + I"], answer: "Ctrl + I" },
     { question: "10. What is the shortcut key for 'Underline' in MS Word?", options: ["Ctrl + B", "Ctrl + I", "Ctrl + N", "Ctrl + U"], answer: "Ctrl + U" },
     { question: "11. What is the shortcut key for 'Find' in MS Word?", options: ["Ctrl + H", "Ctrl + G", "Ctrl + E", "Ctrl + F"], answer: "Ctrl + F" },
@@ -27,16 +27,21 @@ const questions = [
     { question: "13. What is the shortcut key for 'New Document' in MS Word?", options: ["Ctrl + O", "Ctrl + S", "Ctrl + D", "Ctrl + N"], answer: "Ctrl + N" },
     { question: "14. What is the shortcut key for 'Open Document' in MS Word?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + R", "Ctrl + O"], answer: "Ctrl + O" },
     { question: "15. What is the shortcut key for 'Redo' in MS Word?", options: ["Ctrl + Z", "Ctrl + S", "Ctrl + Q", "Ctrl + Y"], answer: "Ctrl + Y" },
-    { question: "16. What is the shortcut key for 'Insert Hyperlink' in MS Word?", options: ["Ctrl + J", "Ctrl + L", "Ctrl + M", "Ctrl + K"], answer: "Ctrl + K" },
+    { question: "16. What is the shortcut key for 'Increase Font Size' in MS Word?", options: ["Ctrl + {", "Ctrl + }", "Ctrl + <", "Ctrl + >"], answer: "Ctrl + }" },
     { question: "17. What is the shortcut key for 'Center Align' in MS Word?", options: ["Ctrl + L", "Ctrl + R", "Ctrl + T", "Ctrl + E"], answer: "Ctrl + E" },
-    { question: "18. What is the shortcut key for 'Right Align' in MS Word?", options: ["Ctrl + E", "Ctrl + L", "Ctrl + J", "Ctrl + R"], answer: "Ctrl + R" },
+    { question: "18. Ms Word is used for?", options: ["Creating Document", "Creating Image", "Creating Information", "None of These"], answer: "Creating Document" },
     { question: "19. What is the shortcut key for 'Left Align' in MS Word?", options: ["Ctrl + R", "Ctrl + E", "Ctrl + J", "Ctrl + L"], answer: "Ctrl + L" },
-    { question: "20. What is the shortcut key for 'FootNote' in MS Word?", options: ["Ctrl + Alt + F", "Ctrl + F", "Ctrl + Alt + D", "Ctrl + D"], answer: "Ctrl + D" },
+    { question: "20. What is the shortcut key for 'EndNote' in MS Word?", options: ["Ctrl + Alt + F", "Ctrl + F", "Ctrl + Alt + D", "Ctrl + D"], answer: "Ctrl + Alt + D" },
     { question: "21. What is the shortcut key for 'Create a bullet list' in MS Word?", options: ["Ctrl + L", "Ctrl + B", "Ctrl + R", "Ctrl + Shift + L"], answer: "Ctrl + Shift + L" },
-    { question: "22. What is the shortcut key for 'Create a numbered list' in MS Word?", options: ["Ctrl + 1", "Ctrl + 2", "Ctrl + 3", "Ctrl + Shift + N"], answer: "Ctrl + Shift + N" },
+    { question: "22. What is the shortcut key for 'Close Word File ?", options: ["Alt + F4", "Ctrl + f4", "Ctrl + W", "Ctrl + Shift + C"], answer: "Ctrl + W" },
     { question: "23. What is the shortcut key for 'Foot Note' in MS Word?", options: ["Ctrl + Shift + Enter", "Ctrl + B", "Ctrl + U", "Ctrl + Alt + F"], answer: "Ctrl + Alt + F" },
-    { question: "24. What is the shortcut key for 'Zoom In' in MS Word?", options: ["Ctrl + -", "Ctrl + 0", "Ctrl + Shift + +", "Ctrl + +"], answer: "Ctrl + +" },
-    { question: "25. What is the shortcut key for 'Zoom Out' in MS Word?", options: ["Ctrl + +", "Ctrl + 0", "Ctrl + Shift + -", "Ctrl + -"], answer: "Ctrl + -" }
+    { question: "24. What is the shortcut key for 'SuperScript' in MS Word?", options: ["Ctrl + Shift++", "Ctrl ++", "Ctrl + Shift + -", "Ctl+Alt ++"], answer: "Ctrl + Shift++" },
+    { question: "25. Blue line in Ms Word is?", options: ["Common Mistake", "Grammer Mistake", "Spelling Mistake", "Natural Mistake"], answer: "Common Mistake" },
+    { question: "26. What is the Extension Of Ms Word ?", options: [".doxc", ".docix", ".dcox", ".docx"], answer: ".docx" },
+    { question: "27. In Which Tab Water Marks is found?", options: ["Insert", "Design", "Layout", "Draw"], answer: "Design" },
+    { question: "28. Where is 'Ruler' Option is Found?", options: ["Review", "View", "Insert", "Reference"], answer: "View" },
+    { question: "29. Total Pages of Your Ms Word Notes?", options: ["30", "31", "32", "33"], answer: "32" },
+    { question: "30. Can Computer Think Like a Humman?", options: ["yes", "No", "Maybe", "both yes and No"], answer: "No" }
 ];
 
 // Function to shuffle options for each question
