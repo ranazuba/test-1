@@ -173,9 +173,10 @@ let timerInterval;
 let timeRemaining = 600; // 10 minutes in seconds
 
 // Function to start the timer
+// Start a 10-minute timer
 function startTimer() {
-    timeRemaining = 900; // Reset to 10 minutes (600 seconds)
-    timerInterval = setInterval(() => {
+    let timeRemaining = 600; // Set to 10 minutes (600 seconds)
+    const timerInterval = setInterval(() => {
         timeRemaining--;
         const minutes = Math.floor(timeRemaining / 60);
         const seconds = timeRemaining % 60;
@@ -192,9 +193,10 @@ function startTimer() {
 }
 
 // Stop the timer
-function stopTimer() {
+function stopTimer(timerInterval) {
     clearInterval(timerInterval);
 }
+
 
 // Start Quiz
 startButton.addEventListener('click', () => {
