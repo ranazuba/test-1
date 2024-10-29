@@ -265,12 +265,13 @@ function showResult() {
     resultScreen.appendChild(downloadImageButton);
 }
 
-// Reload the page if the user switches to another tab
-document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') {
-        // Page reloads if user navigates away from the tab
-        // alert("Switching tabs is not allowed during the quiz. The page will reload.");
-        location.reload();
+window.addEventListener('load', () => {
+    const savedTimer = localStorage.getItem(timerKey);
+    if (savedTimer !== null) {
+        timer = parseInt(savedTimer, 10);
     }
+    document.getElementById('timer').innerText = `${timer} seconds remaining`;
+    interval = setInterval(updateTimer, 1000);
 });
 
+document.addEventListener('visibilitychange', reloadIfTabSwitched);
