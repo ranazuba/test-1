@@ -265,3 +265,12 @@ function showResult() {
     resultScreen.appendChild(downloadImageButton);
 }
 
+// Reload the page if the user switches to another tab
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+        // Page reloads if user navigates away from the tab
+        // alert("Switching tabs is not allowed during the quiz. The page will reload.");
+        location.reload();
+    }
+});
+
