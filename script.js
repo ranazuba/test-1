@@ -253,3 +253,18 @@ restartButton.addEventListener('click', () => {
     resultScreen.style.display = 'none';
     startScreen.style.display = 'block';
 });
+// JavaScript for theory section navigation
+
+// Elements
+const theoryButton = document.getElementById('theory-btn');
+const theorySection = document.getElementById('theory-section');
+// const quizScreen = document.getElementById('quiz-screen');
+
+// Event Listener for Theory Button
+theoryButton.addEventListener('click', () => {
+    // Hide the quiz screen
+    quizScreen.style.display = 'none';
+
+    // Show the theory section
+    theorySection.style.display = 'block';
+});
