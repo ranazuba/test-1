@@ -207,12 +207,16 @@ let timeRemaining;
 
 function startTimer() {
     timeRemaining = 600; // Set to 10 minutes (600 seconds)
+    
+    // Clear any existing interval (safety check in case startTimer is called multiple times)
+    if (timerInterval) clearInterval(timerInterval);
+
     timerInterval = setInterval(() => {
         timeRemaining--;
         const minutes = Math.floor(timeRemaining / 60);
         const seconds = timeRemaining % 60;
 
-        // Update the timer display
+        // Update the timer display with leading zeros for consistency
         document.getElementById('timer').textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
         // Check if time has run out
@@ -225,8 +229,13 @@ function startTimer() {
 
 // Stop Timer
 function stopTimer() {
-    clearInterval(timerInterval);
+    // Only clear the interval if it exists
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null; // Set to null to avoid unintended behavior if stopTimer is called multiple times
+    }
 }
+
 
 // Download Result as Image
 function downloadResultAsImage() {
