@@ -12,73 +12,43 @@ const restartButton = document.getElementById('restart-btn');
 
 // Questions Array
 const questions = [
-    { question: "1. What is the shortcut key for 'Copy' in MS Word?", options: ["Ctrl + V", "Ctrl + X", "Ctrl + A", "Ctrl + C"], answer: "Ctrl + C" },
-    { question: "2. What is the shortcut key for 'Paste' in MS Word?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + Z", "Ctrl + V"], answer: "Ctrl + V" },
-    { question: "3. What is the shortcut key for 'Cut' in MS Word?", options: ["Ctrl + C", "Ctrl + V", "Ctrl + Y", "Ctrl + X"], answer: "Ctrl + X" },
-    { question: "4. What is the shortcut key for 'Undo' in MS Word?", options: ["Ctrl + Y", "Ctrl + S", "Ctrl + P", "Ctrl + Z"], answer: "Ctrl + Z" },
-    { question: "5. What is the shortcut key for 'Save' in MS Word?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + Q", "Ctrl + S"], answer: "Ctrl + S" },
-    { question: "6. What is the shortcut key for 'Print' in MS Word?", options: ["Ctrl + Q", "Ctrl + S", "Ctrl + R", "Ctrl + P"], answer: "Ctrl + P" },
-    { question: "7. What would happen if all computers stopped working?", options: ["Life would be harder", "life will be easier", "Nothing would change", "Everything stop working"], answer: "Life would be harder" },
-    { question: "8. What do you call a person who uses a Computer?", options: ["User", "Programmer", "Engineer", "Employee"], answer: "User" },
-    { question: "9. What is the shortcut key for 'Italic' in MS Word?", options: ["Ctrl + B", "Ctrl + U", "Ctrl + V", "Ctrl + I"], answer: "Ctrl + I" },
-    { question: "10. What is the shortcut key for 'Underline' in MS Word?", options: ["Ctrl + B", "Ctrl + I", "Ctrl + N", "Ctrl + U"], answer: "Ctrl + U" },
-    { question: "11. What is the shortcut key for 'Find' in MS Word?", options: ["Ctrl + H", "Ctrl + G", "Ctrl + E", "Ctrl + F"], answer: "Ctrl + F" },
-    { question: "12. What is the shortcut key for 'Replace' in MS Word?", options: ["Ctrl + F", "Ctrl + Z", "Ctrl + P", "Ctrl + H"], answer: "Ctrl + H" },
-    { question: "13. What is the shortcut key for 'New Document' in MS Word?", options: ["Ctrl + O", "Ctrl + S", "Ctrl + D", "Ctrl + N"], answer: "Ctrl + N" },
-    { question: "14. What is the shortcut key for 'Open Document' in MS Word?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + R", "Ctrl + O"], answer: "Ctrl + O" },
-    { question: "15. What is the shortcut key for 'Redo' in MS Word?", options: ["Ctrl + Z", "Ctrl + S", "Ctrl + Q", "Ctrl + Y"], answer: "Ctrl + Y" },
-    { question: "16. What is the shortcut key for 'Increase Font Size' in MS Word?", options: ["Ctrl + {", "Ctrl + }", "Ctrl + <", "Ctrl + >"], answer: "Ctrl + }" },
-    { question: "17. What is the shortcut key for 'Center Align' in MS Word?", options: ["Ctrl + L", "Ctrl + R", "Ctrl + T", "Ctrl + E"], answer: "Ctrl + E" },
-    { question: "18. Ms Word is used for?", options: ["Creating Document", "Creating Image", "Creating Information", "None of These"], answer: "Creating Document" },
-    { question: "19. What is the shortcut key for 'Left Align' in MS Word?", options: ["Ctrl + R", "Ctrl + E", "Ctrl + J", "Ctrl + L"], answer: "Ctrl + L" },
-    { question: "20. What is the shortcut key for 'EndNote' in MS Word?", options: ["Ctrl + Alt + F", "Ctrl + F", "Ctrl + Alt + D", "Ctrl + D"], answer: "Ctrl + Alt + D" },
-    { question: "21. What is the shortcut key for 'Create a bullet list' in MS Word?", options: ["Ctrl + L", "Ctrl + B", "Ctrl + R", "Ctrl + Shift + L"], answer: "Ctrl + Shift + L" },
-    { question: "22. What is the shortcut key for 'Close Word File ?", options: ["Alt + F4", "Ctrl + f4", "Ctrl + W", "Ctrl + Shift + C"], answer: "Ctrl + W" },
-    { question: "23. What is the shortcut key for 'Foot Note' in MS Word?", options: ["Ctrl + Shift + Enter", "Ctrl + B", "Ctrl + U", "Ctrl + Alt + F"], answer: "Ctrl + Alt + F" },
-    { question: "24. What is the shortcut key for 'SuperScript' in MS Word?", options: ["Ctrl + Shift++", "Ctrl ++", "Ctrl + Shift + -", "Ctl+Alt ++"], answer: "Ctrl + Shift++" },
-    { question: "25. Blue line in Ms Word is?", options: ["Common Mistake", "Grammer Mistake", "Spelling Mistake", "Natural Mistake"], answer: "Common Mistake" },
-    { question: "26. What is the Extension Of Ms Word ?", options: [".doxc", ".docix", ".dcox", ".docx"], answer: ".docx" },
-    { question: "27. In Which Tab Water Marks is found?", options: ["Insert", "Design", "Layout", "Draw"], answer: "Design" },
-    { question: "28. Where is 'Ruler' Option is Found?", options: ["Review", "View", "Insert", "Reference"], answer: "View" },
-    { question: "29. Total Pages of Your Ms Word Notes?", options: ["30", "31", "32", "33"], answer: "32" },
-    { question: "30. Can Computer Think Like a Humman?", options: ["yes", "No", "Maybe", "both yes and No"], answer: "No" }
+    { question: "1. What is the shortcut key for 'Select All' in MS Word?", options: ["Ctrl + C", "Ctrl + A", "Ctrl + X", "Ctrl + V"], answer: "Ctrl + A" },
+    { question: "2. What is the shortcut key for 'Bold' in MS Word?", options: ["Ctrl + U", "Ctrl + B", "Ctrl + I", "Ctrl + Z"], answer: "Ctrl + B" },
+    { question: "3. Which shortcut is used to 'Open' a file?", options: ["Ctrl + F", "Ctrl + O", "Ctrl + N", "Ctrl + P"], answer: "Ctrl + O" },
+    { question: "4. How do you create a 'New Document' in MS Word?", options: ["Ctrl + N", "Ctrl + D", "Ctrl + W", "Ctrl + F"], answer: "Ctrl + N" },
+    { question: "5. Which shortcut key is used to 'Undo'?", options: ["Ctrl + U", "Ctrl + Y", "Ctrl + Z", "Ctrl + I"], answer: "Ctrl + Z" },
+    { question: "6. How do you 'Underline' selected text in MS Word?", options: ["Ctrl + U", "Ctrl + I", "Ctrl + B", "Ctrl + L"], answer: "Ctrl + U" },
+    { question: "7. To 'Print' a document, you use:", options: ["Ctrl + Q", "Ctrl + S", "Ctrl + P", "Ctrl + N"], answer: "Ctrl + P" },
+    { question: "8. What is the shortcut for 'Find' in MS Word?", options: ["Ctrl + H", "Ctrl + F", "Ctrl + G", "Ctrl + Z"], answer: "Ctrl + F" },
+    { question: "9. How do you 'Replace' text in MS Word?", options: ["Ctrl + R", "Ctrl + H", "Ctrl + P", "Ctrl + Z"], answer: "Ctrl + H" },
+    { question: "10. What is the shortcut for 'Paste'?", options: ["Ctrl + V", "Ctrl + X", "Ctrl + C", "Ctrl + A"], answer: "Ctrl + V" },
+    { question: "11. How do you 'Copy' text in MS Word?", options: ["Ctrl + C", "Ctrl + P", "Ctrl + V", "Ctrl + X"], answer: "Ctrl + C" },
+    { question: "12. Which shortcut is used for 'Italic' text?", options: ["Ctrl + I", "Ctrl + L", "Ctrl + B", "Ctrl + E"], answer: "Ctrl + I" },
+    { question: "13. How do you 'Center Align' text?", options: ["Ctrl + J", "Ctrl + C", "Ctrl + E", "Ctrl + R"], answer: "Ctrl + E" },
+    { question: "14. To 'Right Align' text, you use:", options: ["Ctrl + J", "Ctrl + L", "Ctrl + R", "Ctrl + C"], answer: "Ctrl + R" },
+    { question: "15. What is the shortcut to 'Increase Font Size'?", options: ["Ctrl + }", "Ctrl + T", "Ctrl + >", "Ctrl + {"], answer: "Ctrl + }" },
+    { question: "16. You want to share a document with a group, but you don't want them to make any changes. Which option should you choose?", options: ["Save As", "Track Changes", "Restrict Editing", "Print Layout"], answer: "Restrict Editing" },
+    { question: "17. You’re preparing a document with several sections and want to add a title at the top of each page. Which feature should you use?", options: ["Table of Contents", "Header", "Footer", "Bookmark"], answer: "Header" },
+    { question: "18. What is the shortcut key to 'Open Thesaurus'?", options: ["Shift + F7", "Ctrl + F7", "Alt + T", "Ctrl + Alt + F"], answer: "Shift + F7" },
+    { question: "19. Which shortcut opens the 'Save As' dialog?", options: ["F12", "Ctrl + S", "Alt + F4", "Shift + S"], answer: "F12" },
+    { question: "20. How do you create a bullet list in MS Word?", options: ["Ctrl + Shift + L", "Ctrl + L", "Ctrl + B", "Ctrl + U"], answer: "Ctrl + Shift + L" },
+    { question: "21. You need to send a document with confidential information to a colleague. How can you ensure that only people with a password can open it?", options: ["Save as PDF", "Use Track Changes", "Encrypt with Password", "Turn on Read Mode"], answer: "Encrypt with Password" },
+    { question: "22. How do you insert a hyperlink in MS Word?", options: ["Ctrl + L", "Ctrl + K", "Ctrl + T", "Ctrl + E"], answer: "Ctrl + K" },
+    { question: "23. Which command is used to 'Redo' an action?", options: ["Ctrl + Y", "Ctrl + X", "Ctrl + B", "Ctrl + Z"], answer: "Ctrl + Y" },
+    { question: "24. What is the purpose of the 'Design' tab in MS Word?", options: ["Formatting text", "Adjusting layout", "Inserting tables", "Adding page styles"], answer: "Adding page styles" },
+    { question: "25. What is the shortcut to 'Insert Footnote'?", options: ["Ctrl + Alt + F", "Ctrl + F", "Alt + Shift + F", "Ctrl + H"], answer: "Ctrl + Alt + F" },
+    { question: "26. What does the shortcut 'Ctrl + Shift + +' do?", options: ["Makes text superscript", "Increases font size", "Creates a bullet list", "Saves the file"], answer: "Makes text superscript" },
+    { question: "27. What is the shortcut for 'Close Document'?", options: ["Alt + F4", "Ctrl + W", "Ctrl + F4", "Ctrl + S"], answer: "Ctrl + W" },
+    { question: "28. Ruler Ribbon is on which Tab?", options: ["Review", "view", "both a & b", "ruler"], answer: "view" },
+    { question: "29. If a computer lost internet connection, which of the following would stop working?", options: ["Email", "MS Word", "Calculator", "This Pc"], answer: "Email" },
+    { question: "30. When a file is deleted from a computer, where does it go initially?", options: ["To the Recycle Bin", "To the System Cache", "To a Temporary Folder", "To the Hard Drive"], answer: "To the Recycle Bin" }
 ];
 
-// Function to shuffle options for each question
-function shuffleOptions(questions) {
-    questions.forEach(question => {
-        const { options, answer } = question;
-        // Shuffle the options
-        const shuffledOptions = options.sort(() => Math.random() - 0.5);
-        // Ensure the correct answer is included
-        if (!shuffledOptions.includes(answer)) {
-            shuffledOptions.push(answer); // Add the answer if not present
-        }
-        // Shuffle again to mix it up
-        question.options = shuffledOptions.sort(() => Math.random() - 0.5);
-    });
-}
-
-// Shuffle the options
-shuffleOptions(questions);
-
-// Output the questions to verify the options are randomized
-console.log(questions);
-
-
-// Theory Questions Array
-const theoryQuestions = [
-    "Define the basic functions of a computer.",
-    "Explain the differences between input and output devices.",
-    "Describe the role of the CPU in a computer.",
-    "What are the main types of computer memory?",
-    "Explain the purpose of an operating system.",
-    "What is the importance of computer networking?",
-];
 // Variables
 let currentQuestionIndex = 0;
 let score = 0;
 let optionSelected = false;
+let userAnswers = [];
 
 // Start Quiz
 startButton.addEventListener('click', () => {
@@ -88,6 +58,7 @@ startButton.addEventListener('click', () => {
         quizScreen.style.display = 'block';
         score = 0;
         currentQuestionIndex = 0;
+        userAnswers = [];
         optionSelected = false;
         showQuestion();
     } else {
@@ -100,7 +71,7 @@ function showQuestion() {
     const question = questions[currentQuestionIndex];
     questionText.textContent = question.question;
     optionsContainer.innerHTML = '';
-    optionSelected = false; // Reset selection state for each question
+    optionSelected = false;
 
     question.options.forEach(option => {
         const optionDiv = document.createElement('div');
@@ -110,33 +81,31 @@ function showQuestion() {
         optionsContainer.appendChild(optionDiv);
     });
 
-    nextButton.style.display = 'none';
+    nextButton.style.display = 'none'; // Hide next button initially
 }
 
 // Select Option
 function selectOption(selectedOption, optionDiv) {
     if (optionSelected) return; // Prevent further selections
+    optionSelected = true;
 
     const question = questions[currentQuestionIndex];
-    const correctOption = question.answer;
-    optionSelected = true; // Mark that an option has been selected
+    const correctAnswer = question.answer;
 
-    // Mark options as correct or incorrect
-    for (let option of optionsContainer.children) {
-        option.classList.remove('correct', 'incorrect');
-        if (option.textContent === correctOption) {
-            option.classList.add('correct');
-        } else {
-            option.classList.add('incorrect');
-        }
-    }
-
-    // Update score only if the selected option is correct
-    if (selectedOption === correctOption) {
+    if (selectedOption === correctAnswer) {
         score++;
+        optionDiv.style.backgroundColor = 'green';
+    } else {
+        optionDiv.style.backgroundColor = 'red';
+        [...optionsContainer.children].forEach(child => {
+            if (child.textContent === correctAnswer) {
+                child.style.backgroundColor = 'green';
+            }
+        });
     }
 
-    nextButton.style.display = 'block';
+    userAnswers.push({ question: question.question, selectedOption, correctAnswer });
+    nextButton.style.display = 'inline-block'; // Show next button after selection
 }
 
 // Next Question
@@ -151,32 +120,81 @@ nextButton.addEventListener('click', () => {
 
 // Show Result
 function showResult() {
+    stopTimer();
     quizScreen.style.display = 'none';
     resultScreen.style.display = 'block';
+    
     const name = nameInput.value;
     resultText.textContent = `${name}, your score is ${score} out of ${questions.length}.`;
+
+    // Display Correct/Wrong answers for each question
+    const answersDiv = document.createElement('div');
+    
+    // Style the results container
+    answersDiv.style.marginTop = '20px';
+    answersDiv.style.padding = '15px';
+    answersDiv.style.backgroundColor = '#f8f9fa';
+    answersDiv.style.borderRadius = '8px';
+    answersDiv.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+
+    userAnswers.forEach(answer => {
+        const resultDiv = document.createElement('div');
+        resultDiv.classList.add('result-item');
+        
+        // Style individual result item
+        resultDiv.style.padding = '10px';
+        resultDiv.style.marginBottom = '15px';
+        resultDiv.style.border = '1px solid #ddd';
+        resultDiv.style.borderRadius = '5px';
+        resultDiv.style.backgroundColor = '#fff';
+        resultDiv.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+
+        // Style question and answers
+        resultDiv.innerHTML = `
+            <strong style="font-size: 1.1rem; color: #2e3b4e;">${answer.question}</strong><br>
+            Your answer: <span style="color:${answer.selectedOption === answer.correctAnswer ? 'green' : 'red'}; font-weight: bold;">${answer.selectedOption}</span><br>
+            Correct answer: <span style="color:green; font-weight: bold;">${answer.correctAnswer}</span><br>
+        `;
+
+        answersDiv.appendChild(resultDiv);
+    });
+
+    resultScreen.appendChild(answersDiv);
+
+    // Add download result as image button
+    const downloadImageButton = document.createElement('button');
+    downloadImageButton.textContent = "Download Result";
+    downloadImageButton.style.marginTop = '20px';
+    downloadImageButton.style.padding = '10px 20px';
+    downloadImageButton.style.backgroundColor = '#007bff';
+    downloadImageButton.style.color = '#fff';
+    downloadImageButton.style.border = 'none';
+    downloadImageButton.style.borderRadius = '5px';
+    downloadImageButton.style.cursor = 'pointer';
+    downloadImageButton.style.fontSize = '1rem';
+    downloadImageButton.style.transition = 'background-color 0.3s ease';
+    
+    // Hover effect for the download button
+    downloadImageButton.onmouseover = function() {
+        downloadImageButton.style.backgroundColor = '#0056b3';
+    };
+    downloadImageButton.onmouseout = function() {
+        downloadImageButton.style.backgroundColor = '#007bff';
+    };
+
+    downloadImageButton.onclick = downloadResultAsImage;
+    resultScreen.appendChild(downloadImageButton);
 }
 
-// Restart Quiz
-restartButton.addEventListener('click', () => {
-    resultScreen.style.display = 'none';
-    startScreen.style.display = 'block';
-    nameInput.value = '';
-});
 
-function goToTheory() {
-    window.location.href = "theory.html";
-}
 
-// Timer Variables
+// Timer
 let timerInterval;
-let timeRemaining = 600; // 10 minutes in seconds
+let timeRemaining;
 
-// Function to start the timer
-// Start a 10-minute timer
 function startTimer() {
-    let timeRemaining = 600; // Set to 10 minutes (600 seconds)
-    const timerInterval = setInterval(() => {
+    timeRemaining = 600; // Set to 10 minutes (600 seconds)
+    timerInterval = setInterval(() => {
         timeRemaining--;
         const minutes = Math.floor(timeRemaining / 60);
         const seconds = timeRemaining % 60;
@@ -192,56 +210,14 @@ function startTimer() {
     }, 1000);
 }
 
-// Stop the timer
-function stopTimer(timerInterval) {
+// Stop Timer
+function stopTimer() {
     clearInterval(timerInterval);
 }
 
-
-// Start Quiz
-startButton.addEventListener('click', () => {
-    const name = nameInput.value;
-    if (name) {
-        startScreen.style.display = 'none';
-        quizScreen.style.display = 'block';
-        score = 0;
-        currentQuestionIndex = 0;
-        optionSelected = false;
-        showQuestion();
-        startTimer(); // Start the timer when the quiz begins
-    } else {
-        alert('Please enter your name!');
-    }
-});
-
-// Show Result
-function showResult() {
-    stopTimer(); // Stop the timer when showing the result
-    quizScreen.style.display = 'none';
-    resultScreen.style.display = 'block';
-    const name = nameInput.value;
-    resultText.textContent = `${name}, your score is ${score} out of ${questions.length}.`;
-}
-
-// Restart Quiz
-restartButton.addEventListener('click', () => {
-    resultScreen.style.display = 'none';
-    startScreen.style.display = 'block';
-    nameInput.value = '';
-    stopTimer(); // Ensure timer is stopped before restarting
-    document.getElementById('timer').textContent = 'Time Remaining: 15:00'; // Reset timer display
-});
-
-
-
-
-
-
-// Function to capture and download the result screen as an image
+// Download Result as Image
 function downloadResultAsImage() {
     const resultElement = document.getElementById('result-screen');
-
-    // Use html2canvas to capture the result screen as an image
     html2canvas(resultElement).then(canvas => {
         const link = document.createElement('a');
         link.href = canvas.toDataURL('image/png');
@@ -250,28 +226,8 @@ function downloadResultAsImage() {
     });
 }
 
-// Show Result (Updated with Download Image Button)
-function showResult() {
-    stopTimer();
-    quizScreen.style.display = 'none';
-    resultScreen.style.display = 'block';
-    const name = nameInput.value;
-    resultText.textContent = `${name}, your score is ${score} out of ${questions.length}.`;
-
-    // Add download result as image button
-    const downloadImageButton = document.createElement('button');
-    downloadImageButton.textContent = "Download Result";
-    downloadImageButton.onclick = downloadResultAsImage;
-    resultScreen.appendChild(downloadImageButton);
-}
-
-window.addEventListener('load', () => {
-    const savedTimer = localStorage.getItem(timerKey);
-    if (savedTimer !== null) {
-        timer = parseInt(savedTimer, 10);
-    }
-    document.getElementById('timer').innerText = `${timer} seconds remaining`;
-    interval = setInterval(updateTimer, 1000);
+// Restart Quiz
+restartButton.addEventListener('click', () => {
+    resultScreen.style.display = 'none';
+    startScreen.style.display = 'block';
 });
-
-document.addEventListener('visibilitychange', reloadIfTabSwitched);
