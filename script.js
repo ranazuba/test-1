@@ -201,40 +201,43 @@ function showResult() {
 }
 
 
-// Timer
+// Timer variables
+let timeRemaining = 10 * 60; // 10 minutes in seconds
 let timerInterval;
-let timeRemaining;
 
+// Get the timer display element
+const timerElement = document.getElementById('timer');
+
+// Start the timer
 function startTimer() {
-    timeRemaining = 600; // Set to 10 minutes (600 seconds)
-    
-    // Clear any existing interval (safety check in case startTimer is called multiple times)
-    if (timerInterval) clearInterval(timerInterval);
-
     timerInterval = setInterval(() => {
         timeRemaining--;
-        const minutes = Math.floor(timeRemaining / 60);
-        const seconds = timeRemaining % 60;
+        updateTimerDisplay();
 
-        // Update the timer display with leading zeros for consistency
-        document.getElementById('timer').textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-        // Check if time has run out
         if (timeRemaining <= 0) {
-            clearInterval(timerInterval);
-            showResult(); // Automatically show result when time is up
+            clearInterval(timerInterval); // Stop the timer
+            stopQuiz(); // Stop the quiz when the time is up
         }
-    }, 1000);
+    }, 1000); // Update every second
 }
 
-// Stop Timer
-function stopTimer() {
-    // Only clear the interval if it exists
-    if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null; // Set to null to avoid unintended behavior if stopTimer is called multiple times
-    }
+// Update the timer display
+function updateTimerDisplay() {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+    timerElement.textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
+
+// Stop the quiz
+function stopQuiz() {
+    // Display a message when time is up
+    alert("Time's up! The quiz is over.");
+    
+    // Here, you can add additional logic to stop the quiz (like hiding the quiz or disabling options)
+}
+
+// To start the timer, call startTimer() when the quiz starts
+startTimer();
 
 
 // Download Result as Image
@@ -253,18 +256,45 @@ restartButton.addEventListener('click', () => {
     resultScreen.style.display = 'none';
     startScreen.style.display = 'block';
 });
-// JavaScript for theory section navigation
+// Get references to the elements
+const theoryBtn = document.getElementById("theory-btn");
+const theoryScreen = document.getElementById("theory-screen");
+const theoryContainer = document.getElementById("theory-container");
+const restartBtn = document.getElementById("restart-theory-btn");
 
-// Elements
-const theoryButton = document.getElementById('theory-btn');
-const theorySection = document.getElementById('theory-section');
-// const quizScreen = document.getElementById('quiz-screen');
+// Function to add questions dynamically
+function addQuestions() {
+    // Clear any existing content in the container
+    theoryContainer.innerHTML = "";
 
-// Event Listener for Theory Button
-theoryButton.addEventListener('click', () => {
-    // Hide the quiz screen
-    quizScreen.style.display = 'none';
+    // Question 1
+    const question1 = document.createElement("div");
+    question1.classList.add("question");
+    question1.innerHTML = `
+        <h2>1. What is the color of your eyes?</h2>
+        
+    `;
+    theoryContainer.appendChild(question1);
 
-    // Show the theory section
-    theorySection.style.display = 'block';
+    // Question 2
+    const question2 = document.createElement("div");
+    question2.classList.add("question");
+    question2.innerHTML = `
+        <h2>2. What is the meaning of your name?</h2>
+       
+    `;
+    theoryContainer.appendChild(question2);
+}
+
+// Show the theory questions when "Next" button is clicked
+theoryBtn.addEventListener("click", () => {
+    theoryScreen.style.display = "block"; // Show the theory screen
+    theoryBtn.style.display = "none"; // Hide the "Next" button
+    addQuestions(); // Dynamically add questions
+});
+
+// Restart the quiz when "Restart Quiz" button is clicked
+restartBtn.addEventListener("click", () => {
+    theoryScreen.style.display = "none"; // Hide the theory screen
+    theoryBtn.style.display = "inline-block"; // Show the "Next" button again
 });

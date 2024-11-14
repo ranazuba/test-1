@@ -3,28 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>theory <i class="fa fa-question" aria-hidden="true"></i></title>
+    <title>Theory Quiz</title>
     <link rel="stylesheet" href="theory.css">
 </head>
 <body>
-    <!-- Theory Button to navigate to Theory page -->
-    <button id="theory-btn">Go to Theory</button>
 
-    <!-- The theory section will be hidden initially -->
-    <div id="theory-section" style="display:none;">
-        <h2>Short Questions for Theory</h2>
-        <ul>
-            <li>What is the color of your eyes?</li>
-            <li>What is the meaning of your name?</li>
-            <!-- Add more questions here -->
-        </ul>
+    <!-- Theory Screen -->
+    <div id="theory-screen">
+        <h2>Theory Questions</h2>
+        
+        <!-- Theory Questions Container -->
+        <div id="theory-container">
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. What is the color of your eyes?</p>
+                
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. What is the meaning of your name?</p>
+                
+        </div>
+
+        <!-- Restart Button -->
+        <button id="restart-theory-btn">Restart Quiz</button>
     </div>
 
-    <!-- Other Content (Quiz, etc.) -->
-    <div id="quiz-screen">
-        <!-- Quiz content here -->
+    <!-- Next Button to navigate to Theory questions -->
+    <div class="btn">
+        <button id="theory-btn">Next: Theory Questions</button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Link to JavaScript file -->
+    <script src="theory.js"></script>
 </body>
 </html>
