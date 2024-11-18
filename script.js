@@ -271,7 +271,9 @@ function addQuestions() {
     const question1 = document.createElement("div");
     question1.classList.add("question");
     question1.innerHTML = `
-        <h2>1. What is the color of your eyes?</h2>
+    <h2>1 What is the Virus of Computer?</h2>
+    <h2>2. What is the meaning of your name?</h2>
+    <h2>3. What is the color of your eyes?</h2>
         
     `;
     theoryContainer.appendChild(question1);
@@ -280,8 +282,7 @@ function addQuestions() {
     const question2 = document.createElement("div");
     question2.classList.add("question");
     question2.innerHTML = `
-        <h2>2. What is the meaning of your name?</h2>
-       
+        <h2>4. Uses Of Computer in: <br><ul><li>Education</li> <br><li>Entertainment</li> <br><li>Communication </li><br><li>Business </li><br><li>HealthCare/Hospital</li></ul></h2>
     `;
     theoryContainer.appendChild(question2);
 }
