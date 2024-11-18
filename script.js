@@ -303,9 +303,6 @@ restartBtn.addEventListener("click", () => {
 
 
 
-
-
-
 function createResultItem(answer) {
     const resultDiv = document.createElement('div');
     resultDiv.classList.add('result-item');
