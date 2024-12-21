@@ -19,13 +19,21 @@ const questions = [
     { question: "5. How do you insert the current date in Excel?", options: ["Ctrl + ;", "Ctrl + Shift + ;", "Alt + D", "Ctrl + F9"], answer: "Ctrl + ;" },
     { question: "6. What is the shortcut to open the 'Find' dialog box in Excel?", options: ["Ctrl + F", "Ctrl + H", "Ctrl + G", "Ctrl + D"], answer: "Ctrl + F" },
     { question: "7. Which formula is used to find the minimum value in a range of cells?", options: ["=MAX()", "=SUM()", "=MIN()", "=AVERAGE()"], answer: "=MIN()" },
-    { question: "8. What does the 'Ctrl + Shift + + (Plus)' shortcut do?", options: ["Inserts a new row", "Inserts a new column", "Adds a new worksheet", "Decreases font size"], answer: "Inserts a new column" },
+    { 
+  "question": "8. What does the 'Ctrl + S' shortcut do in Excel?", 
+  "options": ["Saves the workbook", "Opens a new workbook", "Closes the workbook", "Selects all cells"], 
+  "answer": "Saves the workbook" 
+},
     { question: "9. Which function returns the number of characters in a cell?", options: ["=LEN()", "=MID()", "=LEFT()", "=RIGHT()"], answer: "=LEN()" },
     { question: "10. What is the shortcut for 'Undo' in Excel?", options: ["Ctrl + Z", "Ctrl + Y", "Ctrl + X", "Ctrl + P"], answer: "Ctrl + Z" },
     { question: "11. What is the formula to calculate a percentage in Excel?", options: ["=SUM(A1:A10)", "=A1/B1*100", "=AVERAGE(A1:A10)", "=IF(A1>B1, 'YES', 'NO')"], answer: "=A1/B1*100" },
     { question: "12. Which shortcut hides the selected column in Excel?", options: ["Ctrl + Shift + 9", "Ctrl + Shift + O", "Ctrl + Shift + L", "Ctrl + )"], answer: "Ctrl + )" },
     { question: "13. To increase the font size of selected text, which shortcut key should you use?", options: ["Ctrl + ]", "Ctrl + }", "Ctrl + [", "Ctrl + +"], answer: "Ctrl + }" },
-    { question: "14. How do you insert a comment in Excel?", options: ["Shift + F2", "Ctrl + F2", "Alt + F2", "Ctrl + Alt + C"], answer: "Shift + F2" },
+    {
+  "question": "14. What is the shortcut to save an Excel file as a PDF?",
+  "options": ["Ctrl + P", "Ctrl + Shift + S", "Alt + F + P", "Ctrl + F12"],
+  "answer": "Ctrl + P"
+},
     { question: "15. What is the shortcut to select the entire row in Excel?", options: ["Ctrl + Space", "Shift + Space", "Alt + Space", "Ctrl + A"], answer: "Shift + Space" },
     { question: "16. Which function allows you to automatically sum a range of cells?", options: ["AutoSum", "Average", "SumIf", "VLOOKUP"], answer: "AutoSum" },
     { question: "17. Which key is used to show or hide the formulas in a worksheet?", options: ["Ctrl + ~", "Ctrl + Shift + `", "Ctrl + F2", "Ctrl + Shift + F12"], answer: "Ctrl + ~" },
@@ -38,9 +46,13 @@ const questions = [
     { question: "24. What does the 'COUNTIF' function do in Excel?", options: ["Counts the total number of cells", "Counts the number of cells that meet a condition", "Counts the number of unique values", "Counts non-empty cells"], answer: "Counts the number of cells that meet a condition" },
     { question: "25. What is the Excel shortcut to open the 'Go To' dialog box?", options: ["Ctrl + G", "Ctrl + H", "Ctrl + F", "Alt + G"], answer: "Ctrl + G" },
     { question: "26. What function can be used to get a part of a text string from a cell?", options: ["=LEFT()", "=MID()", "=RIGHT()", "All of the above"], answer: "All of the above" },
-    { question: "27. What does the Excel function 'IFERROR' do?", options: ["It checks if a value is an error and returns a specified value", "It removes errors from cells", "It shows only error cells", "It corrects errors automatically"], answer: "It checks if a value is an error and returns a specified value" },
+    { question: "27. Total Column in Excel Sheet?", options: ["18384", "16386", "1048576", "16384"], answer: "16384" },
     { question: "28. What is the correct formula for the 'ROUND' function in Excel?", options: ["=ROUND(5.67, 2)", "=ROUND(5.67)", "=ROUND(5,2)", "=ROUND(5.6, 2)"], answer: "=ROUND(5.67, 2)" },
-    { question: "29. How can you change the format of a cell to currency in Excel?", options: ["Ctrl + Shift + C", "Right-click → Format Cells", "Ctrl + C", "Ctrl + Alt + C"], answer: "Right-click → Format Cells" },
+   { 
+  "question": "29. What is the default file extension for Excel workbooks?", 
+  "options": [".xls", ".xlsx", ".csv", ".docx"], 
+  "answer": ".xlsx" 
+},
     { question: "30. What happens if a file is deleted from a computer?", options: ["It is permanently lost", "It goes to the Recycle Bin", "It is archived", "It is saved in a hidden folder"], answer: "It goes to the Recycle Bin" } 
 ];
 
