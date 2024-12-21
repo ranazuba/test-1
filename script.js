@@ -463,7 +463,7 @@ function addQuestions() {
   question1.innerHTML = `
     <h2>1 What is the Virus of Computer?</h2>
     <h2>2. What is the meaning of your name?</h2>
-    <h2>3. What is the color of your eyes?</h2>
+
         
     `;
   theoryContainer.appendChild(question1);
