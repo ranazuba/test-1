@@ -30,9 +30,9 @@ const questions = [
     { question: "12. Which shortcut hides the selected column in Excel?", options: ["Ctrl + Shift + 9", "Ctrl + Shift + O", "Ctrl + Shift + L", "Ctrl + )"], answer: "Ctrl + )" },
     { question: "13. To increase the font size of selected text, which shortcut key should you use?", options: ["Ctrl + ]", "Ctrl + }", "Ctrl + [", "Ctrl + +"], answer: "Ctrl + }" },
     {
-  "question": "14. What is the shortcut to save an Excel file as a PDF?",
+  question: "14. What is the shortcut to save an Excel file as a PDF?",
   options: ["Ctrl + P", "CTRL+S", "F12", "Ctrl + F12"],
-  "answer": "F12"
+  answer: "F12"
 },
     { question: "15. What is the shortcut to select the entire row in Excel?", options: ["Ctrl + Space", "Shift + Space", "Alt + Space", "Ctrl + A"], answer: "Shift + Space" },
     { question: "16. Which function allows you to automatically sum a range of cells?", options: ["AutoSum", "Average", "SumIf", "VLOOKUP"], answer: "AutoSum" },
