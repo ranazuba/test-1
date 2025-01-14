@@ -13,216 +13,112 @@ const restartButton = document.getElementById("restart-btn");
 // Questions Array
 const questions = [
   {
-    question: "1. What is the shortcut key for creating a new sheet in Excel?",
-    options: ["Shift + F11", "Ctrl + N", "Ctrl + S", "Alt + F4"],
-    answer: "Shift + F11",
+    question: "1. What is the shortcut key to create a new slide in PowerPoint?",
+    options: ["Ctrl + N", "Ctrl + M", "Shift + N", "Alt + M"],
+    answer: "Ctrl + M",
   },
   {
-    question: "2. What is the shortcut key to go to the first row or column?",
-    options: ["Ctrl + Right", "Ctrl + Up", "Ctrl + Down", "Ctrl + Left"],
-    answer: "Ctrl + Up",
+    question: "2. Which key is used to delete a slide in PowerPoint?",
+    options: ["Backspace", "Delete", "Ctrl + Delete", "Shift + Backspace"],
+    answer: "Delete",
   },
   {
-    question: "3. What does the shortcut 'Ctrl + Shift + L' do in Excel?",
-    options: [
-      "Adds a new line in a cell",
-      "Applies a filter",
-      "Hides the selected row",
-      "Starts a new sheet",
-    ],
-    answer: "Applies a filter",
+    question: "3. What shortcut key is used to start a presentation from the first slide?",
+    options: ["F5", "Shift + F5", "Ctrl + F5", "Alt + F5"],
+    answer: "F5",
   },
   {
-    question:
-      "4. Which of the following is used to perform the 'Sum' operation in Excel?",
-    options: ["=AVERAGE()", "=SUM()", "=MAX()", "=IF()"],
-    answer: "=SUM()",
+    question: "4. How do you preview the current slide in full screen?",
+    options: ["Ctrl + P", "Shift + F5", "Ctrl + Shift + P", "Alt + F5"],
+    answer: "Shift + F5",
   },
   {
-    question: "5. How do you insert the current date in Excel?",
-    options: ["Ctrl + ;", "Ctrl + Shift + ;", "Alt + D", "Ctrl + F9"],
-    answer: "Ctrl + ;",
+    question: "5. What is the shortcut key to go to the first slide in a presentation?",
+    options: ["Ctrl + End", "Ctrl + Home", "Alt + Home", "Shift + Home"],
+    answer: "Ctrl + Home",
   },
   {
-    question: "6. What is the shortcut to open the 'Find' dialog box in Excel?",
-    options: ["Ctrl + F", "Ctrl + H", "Ctrl + G", "Ctrl + D"],
-    answer: "Ctrl + F",
+    question: "6. Which shortcut key is used to increase the font size in PowerPoint?",
+    options: ["Ctrl + Shift + >", "Ctrl + >", "Ctrl + Shift + <", "Ctrl + <"],
+    answer: "Ctrl + Shift + >",
   },
   {
-    question:
-      "7. Which formula is used to find the minimum value in a range of cells?",
-    options: ["=MAX()", "=SUM()", "=MIN()", "=AVERAGE()"],
-    answer: "=MIN()",
+    question: "7. What shortcut key makes the screen go black during a slideshow?",
+    options: ["B", "W", "Ctrl + B", "Shift + B"],
+    answer: "B",
   },
   {
-    question: "8. What does the 'Ctrl + S' shortcut do in Excel?",
-    options: [
-      "Saves the workbook",
-      "Opens a new workbook",
-      "Closes the workbook",
-      "Selects all cells",
-    ],
-    answer: "Saves the workbook",
+    question: "8. How do you return to the first slide during a presentation?",
+    options: ["1 + Enter", "Ctrl + Home", "Alt + 1", "Shift + 1"],
+    answer: "1 + Enter",
   },
   {
-    question: "9. Which function returns the number of characters in a cell?",
-    options: ["=LEN()", "=MID()", "=LEFT()", "=RIGHT()"],
-    answer: "=LEN()",
-  },
-  {
-    question: "10. What is the shortcut for 'Undo' in Excel?",
-    options: ["Ctrl + Z", "Ctrl + Y", "Ctrl + X", "Ctrl + P"],
-    answer: "Ctrl + Z",
-  },
-  {
-    question: "11. What is the formula to calculate a percentage in Excel?",
-    options: [
-      "=SUM(A1:A10)",
-      "=A1/B1*100",
-      "=AVERAGE(A1:A10)",
-      "=IF(A1>B1, 'YES', 'NO')",
-    ],
-    answer: "=A1/B1*100",
-  },
-  {
-    question: "12. Which shortcut hides the selected column in Excel?",
-    options: [
-      "Ctrl + Shift + 9",
-      "Ctrl + Shift + O",
-      "Ctrl + Shift + L",
-      "Ctrl + )",
-    ],
-    answer: "Ctrl + )",
-  },
-  {
-    question:
-      "13. To increase the font size of selected text, which shortcut key should you use?",
-    options: ["Ctrl + ]", "Ctrl + }", "Ctrl + [", "Ctrl + +"],
-    answer: "Ctrl + }",
-  },
-  {
-    question: "14. What is the shortcut to save an Excel file as a PDF?",
-    options: ["Ctrl + P", "CTRL+S", "F12", "Ctrl + F12"],
-    answer: "F12",
-  },
-  {
-    question: "15. What is the shortcut to select the entire row in Excel?",
-    options: ["Ctrl + Space", "Shift + Space", "Alt + Space", "Ctrl + A"],
-    answer: "Shift + Space",
-  },
-  {
-    question:
-      "16. Which function allows you to automatically sum a range of cells?",
-    options: ["AutoSum", "Average", "SumIf", "VLOOKUP"],
-    answer: "AutoSum",
-  },
-  {
-    question:
-      "17. Which key is used to show or hide the formulas in a worksheet?",
-    options: [
-      "Ctrl + ~",
-      "Ctrl + Shift + `",
-      "Ctrl + F2",
-      "Ctrl + Shift + F12",
-    ],
-    answer: "Ctrl + ~",
-  },
-  {
-    question: "18. How can you apply a cell format in Excel?",
-    options: ["Ctrl + F", "Ctrl + 1", "Ctrl + Shift + F", "Ctrl + Alt + F"],
-    answer: "Ctrl + 1",
-  },
-  {
-    question:
-      "19. Which of these formulas will check if a value is greater than or equal to 40 and return 'Pass' or 'Fail'?",
-    options: [
-      "=IF(A1>=40, 'Pass', 'Fail')",
-      "=IF(A1>40, 'Pass', 'Fail')",
-      "=IF(A1>=30, 'Pass', 'Fail')",
-      "=IF(A1>=50, 'Pass', 'Fail')",
-    ],
-    answer: "=IF(A1>=40, 'Pass', 'Fail')",
-  },
-  {
-    question: "20. To merge two or more cells, which option should you use?",
-    options: [
-      "Format Cells → Alignment",
-      "Right-click → Merge Cells",
-      "Merge & Center Button",
-      "All of the above",
-    ],
-    answer: "All of the above",
-  },
-  {
-    question: "21. How do you perform a vertical lookup in Excel?",
-    options: ["=VLOOKUP()", "=HLOOKUP()", "=LOOKUP()", "=INDEX()"],
-    answer: "=VLOOKUP()",
-  },
-  {
-    question:
-      "22. What shortcut key is used to open the 'Save As' dialog in Excel?",
-    options: ["F12", "Ctrl + S", "Ctrl + O", "Alt + F4"],
-    answer: "F12",
-  },
-  {
-    question:
-      "23. Which Excel function is used to find the largest value in a range of cells?",
-    options: ["=MIN()", "=SUM()", "=MAX()", "=AVERAGE()"],
-    answer: "=MAX()",
-  },
-  {
-    question: "24. What does the 'COUNTIF' function do in Excel?",
-    options: [
-      "Counts the total number of cells",
-      "Counts the number of cells that meet a condition",
-      "Counts the number of unique values",
-      "Counts non-empty cells",
-    ],
-    answer: "Counts the number of cells that meet a condition",
-  },
-  {
-    question: "25. What is the Excel shortcut to open the 'Go To' dialog box?",
-    options: ["Ctrl + G", "Ctrl + H", "Ctrl + F", "Alt + G"],
+    question: "9. What is the shortcut key for grouping selected items?",
+    options: ["Ctrl + G", "Ctrl + Shift + G", "Ctrl + Alt + G", "Ctrl + H"],
     answer: "Ctrl + G",
   },
   {
-    question:
-      "26. What function can be used to get a part of a text string from a cell?",
-    options: ["=LEFT()", "=MID()", "=RIGHT()", "All of the above"],
-    answer: "All of the above",
+    question: "10. Which key is used to stop or restart an automatic slideshow?",
+    options: ["S", "Ctrl + S", "Alt + S", "Shift + S"],
+    answer: "S",
   },
   {
-    question: "27. Total Column in Excel Sheet?",
-    options: ["18384", "16386", "1048576", "16384"],
-    answer: "16384",
+    question: "11. What is the shortcut key to ungroup items in PowerPoint?",
+    options: ["Ctrl + G", "Ctrl + Shift + G", "Ctrl + Alt + G", "Shift + U"],
+    answer: "Ctrl + Shift + G",
   },
   {
-    question:
-      "28. What is the correct formula for the 'ROUND' function in Excel?",
+    question: "12. How do you make the screen go white during a slideshow?",
+    options: ["W", "B", "Ctrl + W", "Shift + W"],
+    answer: "W",
+  },
+  {
+    question: "13. Which key erases pen tool drawings during a slideshow?",
+    options: ["E", "Ctrl + E", "Shift + E", "Alt + E"],
+    answer: "E",
+  },
+  {
+    question: "14. How do you hide or show the grid in PowerPoint?",
+    options: ["Shift + F9", "Ctrl + F9", "Alt + F9", "Ctrl + Shift + F9"],
+    answer: "Shift + F9",
+  },
+  {
+    question: "15. Which shortcut key is used to change the pen to a pointer?",
+    options: ["Ctrl + A", "Ctrl + P", "Shift + P", "Alt + A"],
+    answer: "Ctrl + A",
+  },
+  {
+    question: "16. What shortcut key turns off the pen tool during a slideshow?",
+    options: ["Esc", "Ctrl + E", "Shift + Esc", "Ctrl + P"],
+    answer: "Esc",
+  },
+  {
+    question: "17. What does the shortcut 'Ctrl + Shift + <' do?",
     options: [
-      "=ROUND(5.67, 2)",
-      "=ROUND(5.67)",
-      "=ROUND(5,2)",
-      "=ROUND(5.6, 2)",
+      "Increases font size",
+      "Decreases font size",
+      "Changes font style",
+      "Inserts a new slide",
     ],
-    answer: "=ROUND(5.67, 2)",
+    answer: "Decreases font size",
   },
   {
-    question: "29. What is the default file extension for Excel workbooks?",
-    options: [".xls", ".xlsx", ".csv", ".docx"],
-    answer: ".xlsx",
+    question: "18. How do you navigate to the last slide in a presentation?",
+    options: ["Ctrl + End", "Ctrl + Home", "Alt + End", "Shift + End"],
+    answer: "Ctrl + End",
   },
   {
-    question: "30. What happens if a file is deleted from a computer?",
-    options: [
-      "It is permanently lost",
-      "It goes to the Recycle Bin",
-      "It is archived",
-      "It is saved in a hidden folder",
-    ],
-    answer: "It goes to the Recycle Bin",
+    question: "19. Which shortcut is used to show the current slide in preview mode?",
+    options: ["Shift + F5", "Ctrl + F5", "F5", "Alt + F5"],
+    answer: "Shift + F5",
+  },
+  {
+    question: "20. How do you apply superscript formatting in PowerPoint?",
+    options: ["Ctrl + =", "Ctrl + Shift + =", "Ctrl + +", "Alt + ="],
+    answer: "Ctrl + =",
   },
 ];
+
 
 // Variables
 let currentQuestionIndex = 0;
