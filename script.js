@@ -117,8 +117,8 @@ const questions = [
   },
   {
     question: "21. How do you undo an action in InPage?",
-    options: ["Ctrl + Alt + Z", "Ctrl + 2", "Alt + Z", "Ctrl + Z"],
-    answer: "Ctrl + 2",
+    options: ["Ctrl + Alt + Z", "Ctrl + Y", "Alt + Z", "Ctrl + Z"],
+    answer: "Ctrl + Z",
   },
   {
     question: "22. Which shortcut increases word spacing in InPage?",
