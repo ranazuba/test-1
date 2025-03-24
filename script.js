@@ -158,9 +158,9 @@ const questions = [
     answer: "Ctrl + Alt + L",
   },
   {
-    question: "30. Which shortcut is used to change paragraph spacing?",
-    options: ["Ctrl + M", "Ctrl + Shift + M", "Ctrl + Alt + M", "Ctrl + P"],
-    answer: "Ctrl + M",
+    question: "30. Which shortcut is used for Format Painter?",
+    options: ["Ctrl + Alt + C", "Ctrl + Shift + C", "Ctrl + Alt + M", "Ctrl + Shift + F"],
+    answer: "Ctrl + Shift + C",
   },
 ];
 
