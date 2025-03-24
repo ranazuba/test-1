@@ -13,161 +13,156 @@ const restartButton = document.getElementById("restart-btn");
 // Questions Array
 const questions = [
   {
-    question: "1. What is the shortcut to auto-save in InPage?",
-    options: ["Ctrl + S", "Alt + F11", "Ctrl + F11", "Shift + F11"],
-    answer: "Alt + F11",
+    question: "1. What is the shortcut to save a document in MS Word?",
+    options: ["Ctrl + S", "Alt + S", "Ctrl + Shift + S", "Ctrl + P"],
+    answer: "Ctrl + S",
   },
   {
-    question: "2. Which shortcut increases text size in InPage?",
-    options: ["Ctrl + F9", "Alt + F9", "Ctrl + F10", "Ctrl + Shift + F10"],
-    answer: "Ctrl + F10",
+    question: "2. How can you select all text in a document?",
+    options: ["Ctrl + A", "Alt + A", "Ctrl + Shift + A", "Ctrl + X"],
+    answer: "Ctrl + A",
   },
   {
-    question: "3. How can you decrease word spacing in InPage?",
-    options: ["Ctrl + F5", "Alt + F6", "Ctrl + F6", "Ctrl + Alt + F6"],
-    answer: "Ctrl + F6",
+    question: "3. Which shortcut key is used to create a new document in MS Word?",
+    options: ["Ctrl + N", "Alt + N", "Ctrl + Shift + N", "Ctrl + O"],
+    answer: "Ctrl + N",
   },
   {
-    question: "4. What is the shortcut to justify text in InPage?",
-    options: ["Ctrl + Alt + J", "Ctrl + Shift + J", "Ctrl + J", "Alt + J"],
-    answer: "Ctrl + Alt + J",
+    question: "4. What is the shortcut key for copying text?",
+    options: ["Ctrl + X", "Ctrl + V", "Ctrl + C", "Ctrl + P"],
+    answer: "Ctrl + C",
   },
   {
-    question: "5. How do you create a new page in InPage?",
-    options: ["Shift + Insert", "Ctrl + N", "Alt + Insert", "Ctrl + Shift + N"],
-    answer: "Alt + Insert",
+    question: "5. Which shortcut key is used to paste copied text?",
+    options: ["Ctrl + P", "Ctrl + X", "Ctrl + C", "Ctrl + V"],
+    answer: "Ctrl + V",
   },
   {
-    question: "6. Which shortcut is used to toggle language in InPage?",
-    options: ["Ctrl + Alt + Space", "Shift + Space", "Ctrl + Space", "Alt + Space"],
-    answer: "Ctrl + Space",
-  },
-  {
-    question: "7. How can you increase line spacing in InPage?",
-    options: ["Ctrl + F5", "Ctrl + Shift + F5", "Alt + F5", "Shift + F5"],
-    answer: "Ctrl + Shift + F5",
-  },
-  {
-    question: "8. What is the shortcut to move text to the right in InPage?",
-    options: ["Shift + Alt + R", "Alt + R", "Ctrl + Alt + R", "Ctrl + Shift + R"],
-    answer: "Ctrl + Alt + R",
-  },
-  {
-    question: "9. How do you move to the first page in InPage?",
-    options: ["Shift + Home", "Ctrl + Home", "Alt + Home", "Ctrl + Alt + Home"],
-    answer: "Alt + Home",
-  },
-  {
-    question: "10. Which shortcut makes text bold in InPage?",
-    options: ["Ctrl + B", "Ctrl + Alt + B", "Alt + B", "Ctrl + Shift + B"],
-    answer: "Ctrl + B",
-  },
-  {
-    question: "11. What is the shortcut for grouping items in InPage?",
-    options: ["Ctrl + Alt + G", "Alt + G", "Shift + Alt + G", "Ctrl + G"],
-    answer: "Ctrl + Alt + G",
-  },
-  {
-    question: "12. How do you ungroup items in InPage?",
-    options: ["Ctrl + U", "Ctrl + Alt + U", "Alt + U", "Shift + Alt + U"],
-    answer: "Ctrl + Alt + U",
-  },
-  {
-    question: "13. Which key deletes a page in InPage?",
-    options: ["Alt + Delete", "Ctrl + Delete", "Ctrl + Alt + Delete", "Shift + Delete"],
-    answer: "Alt + Delete",
-  },
-  {
-    question: "14. How do you move text down in InPage?",
-    options: ["Ctrl + Shift + F8", "Ctrl + F8", "Ctrl + Alt + F8", "Alt + F8"],
-    answer: "Ctrl + F8",
-  },
-  {
-    question: "15. What is the file extension used by InPage?",
-    options: [".inp", ".ipn", ".iinp", ".nip"],
-    answer: ".inp",
-
-
-   
-  },
-  {
-    question: "16. How do you export text in InPage?",
-    options: ["Ctrl + Y", "Alt + Y", "Shift + Alt + Y", "Ctrl + Alt + Y"],
-    answer: "Ctrl + Alt + Y",
-  },
-  {
-    question: "17. Which shortcut is used to decrease skew in InPage?",
-    options: ["Alt + F8", "Ctrl + Shift + F8", "Shift + F8", "Ctrl + F8"],
-    answer: "Ctrl + Shift + F8",
-  },
-  {
-    question: "18. How do you go to the next page in InPage?",
-    options: ["Ctrl + Alt + Page Down", "Ctrl + Page Down", "Shift + Page Down", "Alt + Page Down"],
-    answer: "Alt + Page Down",
-  },
-  {
-    question: "19. Which shortcut decreases text size in InPage?",
-    options: ["Ctrl + F9", "Ctrl + Alt + F9", "Ctrl + F10", "Alt + F9"],
-    answer: "Ctrl + F9",
-  },
-  {
-    question: "20. What is the shortcut to toggle Snap to Guides in InPage?",
-    options: ["Ctrl + Alt + F9", "Alt + F9", "Ctrl + F9", "F9"],
-    answer: "F9",
-  },
-  {
-    question: "21. How do you undo an action in InPage?",
-    options: ["Ctrl + Alt + Z", "Ctrl + Y", "Alt + Z", "Ctrl + Z"],
+    question: "6. How do you undo the last action in MS Word?",
+    options: ["Ctrl + Y", "Ctrl + Z", "Alt + Z", "Shift + Z"],
     answer: "Ctrl + Z",
   },
   {
-    question: "22. Which shortcut increases word spacing in InPage?",
-    options: ["Ctrl + F5", "Ctrl + Alt + F5", "Ctrl + Shift + F5", "Alt + F5"],
-    answer: "Ctrl + F5",
+    question: "7. What is the shortcut to make text bold in MS Word?",
+    options: ["Ctrl + I", "Ctrl + B", "Ctrl + U", "Alt + B"],
+    answer: "Ctrl + B",
   },
   {
-    question: "23. What is the shortcut to move text to the left in InPage?",
-    options: ["Ctrl + L", "Alt + L", "Shift + Alt + L", "Ctrl + Alt + L"],
-    answer: "Ctrl + Alt + L",
-  },
-  {
-    question: "24. How do you make text italic in InPage?",
-    options: ["Ctrl + Alt + I", "Shift + I", "Alt + I", "Ctrl + I"],
+    question: "8. Which shortcut key is used to italicize text?",
+    options: ["Ctrl + B", "Ctrl + U", "Ctrl + I", "Alt + I"],
     answer: "Ctrl + I",
   },
   {
-    question: "25. Which shortcut moves text up in InPage?",
-    options: ["Ctrl + F7", "Ctrl + Shift + F7", "Alt + F7", "Ctrl + Alt + F7"],
-    answer: "Ctrl + F7",
+    question: "9. How can you underline selected text?",
+    options: ["Ctrl + I", "Ctrl + B", "Ctrl + U", "Alt + U"],
+    answer: "Ctrl + U",
   },
   {
-    question: "26. What is the shortcut to open document formatting in InPage?",
-    options: ["Ctrl + F11", "Ctrl + Shift + F11", "Alt + F11", "Ctrl + Alt + F11"],
-    answer: "Ctrl + F11",
+    question: "10. What is the shortcut to open a document?",
+    options: ["Ctrl + O", "Ctrl + N", "Ctrl + P", "Ctrl + S"],
+    answer: "Ctrl + O",
   },
   {
-    question: "27. Which shortcut moves to the last page in InPage?",
-    options: ["Shift + End", "Ctrl + Alt + End", "Ctrl + End", "Alt + End"],
-    answer: "Alt + End",
+    question: "11. Which shortcut is used to print a document?",
+    options: ["Ctrl + P", "Ctrl + S", "Ctrl + N", "Ctrl + O"],
+    answer: "Ctrl + P",
   },
   {
-    question: "28. How do you import text in InPage?",
-    options: ["Alt + Y", "Ctrl + Alt + Y", "Ctrl + Y", "Shift + Y"],
+    question: "12. How can you justify text in MS Word?",
+    options: ["Ctrl + L", "Ctrl + R", "Ctrl + J", "Ctrl + E"],
+    answer: "Ctrl + J",
+  },
+  {
+    question: "13. What is the shortcut key for left alignment?",
+    options: ["Ctrl + L", "Ctrl + J", "Ctrl + R", "Ctrl + E"],
+    answer: "Ctrl + L",
+  },
+  {
+    question: "14. Which shortcut moves text to the center?",
+    options: ["Ctrl + J", "Ctrl + L", "Ctrl + R", "Ctrl + E"],
+    answer: "Ctrl + E",
+  },
+  {
+    question: "15. What is the shortcut for right alignment?",
+    options: ["Ctrl + R", "Ctrl + J", "Ctrl + L", "Ctrl + E"],
+    answer: "Ctrl + R",
+  },
+  {
+    question: "16. How do you increase font size in MS Word?",
+    options: ["Ctrl + }", "Ctrl + {", "Ctrl + +", "Ctrl + -"],
+    answer: "Ctrl + }",
+  },
+  {
+    question: "17. What is the shortcut to decrease font size?",
+    options: ["Ctrl + {", "Ctrl + }", "Ctrl + -", "Ctrl + +"],
+    answer: "Ctrl + {",
+  },
+  {
+    question: "18. How do you change the case of selected text?",
+    options: ["Ctrl + Shift + C", "Ctrl + Shift + F", "Shift + F3", "Ctrl + C"],
+    answer: "Shift + F3",
+  },
+  {
+    question: "19. How do you add a new page in MS Word?",
+    options: ["Ctrl + P", "Ctrl + Shift + P", "Ctrl + Enter", "Shift + Enter"],
+    answer: "Ctrl + Enter",
+  },
+  {
+    question: "20. What is the shortcut to find a word in a document?",
+    options: ["Ctrl + F", "Ctrl + H", "Ctrl + G", "Ctrl + R"],
+    answer: "Ctrl + F",
+  },
+  {
+    question: "21. How do you replace a word in MS Word?",
+    options: ["Ctrl + H", "Ctrl + R", "Ctrl + F", "Ctrl + G"],
+    answer: "Ctrl + H",
+  },
+  {
+    question: "22. Which shortcut key is used to insert a hyperlink?",
+    options: ["Ctrl + H", "Ctrl + K", "Ctrl + L", "Ctrl + J"],
+    answer: "Ctrl + K",
+  },
+  {
+    question: "23. What is the shortcut key to insert a footnote?",
+    options: ["Ctrl + Alt + F", "Ctrl + Shift + F", "Alt + F", "Shift + F"],
+    answer: "Ctrl + Alt + F",
+  },
+  {
+    question: "24. How can you add a comment in MS Word?",
+    options: ["Ctrl + Alt + M", "Ctrl + Shift + M", "Alt + M", "Shift + M"],
+    answer: "Ctrl + Alt + M",
+  },
+  {
+    question: "25. What is the Extension of MS Word?",
+    options: ["docx", ".dcox", ".codx", ".docx"],
+    answer: ".docx",
+  },
+  {
+    question: "26. Shortcut Key to Close Ms Word File?",
+    options: ["Ctrl + W", "Alt + F4", "Ctrl + C", "Shift + W"],
+    answer: "Ctrl + W",
+  },
+  {
+    question: "27. Which shortcut is used to open the Save As dialog box?",
+    options: ["Ctrl + S", "Ctrl + Shift + S", "F12", "Ctrl + Alt + S"],
+    answer: "F12",
+  },
+  {
+    question: "28. What is the shortcut to redo an action?",
+    options: ["Ctrl + Z", "Ctrl + Y", "Ctrl + Shift + Z", "Alt + Y"],
     answer: "Ctrl + Y",
   },
   {
-    
-    question: "29. Which key is used to export a page in InPage?",
-    options: ["Ctrl + Y", "Ctrl + Alt + Y", "Alt + Y", "Ctrl + Shift + Y"],
-    answer: "Ctrl + Alt + Y",
+    question: "29. How do you create a numbered list?",
+    options: ["Ctrl + Shift + L", "Ctrl + Alt + L", "Ctrl + N", "Ctrl + L"],
+    answer: "Ctrl + Alt + L",
   },
   {
-    question: "30. What is the shortcut to fully justify text in InPage?",
-    options: ["Alt + F", "Ctrl + Shift + F", "Ctrl + F", "Ctrl + Alt + F"],
-    answer: "Ctrl + Alt + F",
+    question: "30. Which shortcut is used to change paragraph spacing?",
+    options: ["Ctrl + M", "Ctrl + Shift + M", "Ctrl + Alt + M", "Ctrl + P"],
+    answer: "Ctrl + M",
   },
 ];
-
 
 
 // Variables
