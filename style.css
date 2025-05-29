@@ -67,12 +67,13 @@ button:hover {
 
 /* Question Text */
 #question-text {
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 20px;
 }
 
 /* Option Styling */
 .option {
+  font-size: 20px;
   padding: 10px;
   margin: 5px 0;
   background-color: #ecf0f1;
