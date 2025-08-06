@@ -42,68 +42,31 @@ const questions = [
     { question: "28. What function checks if two values are exactly the same?", options: ["=IsEqual()", "=Match()", "=Compare()", "=Exact()"], answer: "=Exact()" },
     { question: "29. What is the path to apply conditional formatting?", options: ["Home > Conditional Formatting", "Insert > Rules > Condition", "Data > Conditional Formatting", "Home > Format > Cell"], answer: "Home > Conditional Formatting" },
     { question: "30. What function is used to lookup a value in a table?", options: ["=HLOOKUP()", "=INDEX()", "=SEARCH()", "=VLOOKUP()"], answer: "=VLOOKUP()" }
-  ];
+];
 
-  
-  
-
-// Function to shuffle options for each question
+// Shuffle options
 function shuffleOptions(questions) {
     questions.forEach(question => {
-        const { options, answer } = question;
-        // Shuffle the options
-        const shuffledOptions = options.sort(() => Math.random() - 0.5);
-        // Ensure the correct answer is included
-        if (!shuffledOptions.includes(answer)) {
-            shuffledOptions.push(answer); // Add the answer if not present
-        }
-        // Shuffle again to mix it up
-        question.options = shuffledOptions.sort(() => Math.random() - 0.5);
+        const shuffled = question.options.sort(() => Math.random() - 0.5);
+        if (!shuffled.includes(question.answer)) shuffled.push(question.answer);
+        question.options = shuffled.sort(() => Math.random() - 0.5);
     });
 }
-
-// Shuffle the options
 shuffleOptions(questions);
 
-// Output the questions to verify the options are randomized
-console.log(questions);
-
-
-// Theory Questions Array
-const theoryQuestions = [
-    "Define the basic functions of a computer.",
-    "Explain the differences between input and output devices.",
-    "Describe the role of the CPU in a computer.",
-    "What are the main types of computer memory?",
-    "Explain the purpose of an operating system.",
-    "What is the importance of computer networking?",
-];
 // Variables
 let currentQuestionIndex = 0;
 let score = 0;
 let optionSelected = false;
-
-// Start Quiz
-startButton.addEventListener('click', () => {
-    const name = nameInput.value;
-    if (name) {
-        startScreen.style.display = 'none';
-        quizScreen.style.display = 'block';
-        score = 0;
-        currentQuestionIndex = 0;
-        optionSelected = false;
-        showQuestion();
-    } else {
-        alert('Please enter your name!');
-    }
-});
+let timerInterval;
+let timeRemaining = 600;
 
 // Show Question
 function showQuestion() {
     const question = questions[currentQuestionIndex];
     questionText.textContent = question.question;
     optionsContainer.innerHTML = '';
-    optionSelected = false; // Reset selection state for each question
+    optionSelected = false;
 
     question.options.forEach(option => {
         const optionDiv = document.createElement('div');
@@ -118,26 +81,22 @@ function showQuestion() {
 
 // Select Option
 function selectOption(selectedOption, optionDiv) {
-    if (optionSelected) return; // Prevent further selections
+    if (optionSelected) return;
 
     const question = questions[currentQuestionIndex];
-    const correctOption = question.answer;
-    optionSelected = true; // Mark that an option has been selected
+    question.selectedOption = selectedOption;
+    optionSelected = true;
 
-    // Mark options as correct or incorrect
-    for (let option of optionsContainer.children) {
-        option.classList.remove('correct', 'incorrect');
-        if (option.textContent === correctOption) {
-            option.classList.add('correct');
+    Array.from(optionsContainer.children).forEach(opt => {
+        opt.classList.remove('correct', 'incorrect');
+        if (opt.textContent === question.answer) {
+            opt.classList.add('correct');
         } else {
-            option.classList.add('incorrect');
+            opt.classList.add('incorrect');
         }
-    }
+    });
 
-    // Update score only if the selected option is correct
-    if (selectedOption === correctOption) {
-        score++;
-    }
+    if (selectedOption === question.answer) score++;
 
     nextButton.style.display = 'block';
 }
@@ -152,55 +111,6 @@ nextButton.addEventListener('click', () => {
     }
 });
 
-// Show Result
-function showResult() {
-    quizScreen.style.display = 'none';
-    resultScreen.style.display = 'block';
-    const name = nameInput.value;
-    resultText.textContent = `${name}, your score is ${score} out of ${questions.length}.`;
-}
-
-// Restart Quiz
-restartButton.addEventListener('click', () => {
-    resultScreen.style.display = 'none';
-    startScreen.style.display = 'block';
-    nameInput.value = '';
-});
-
-function goToTheory() {
-    window.location.href = "theory.html";
-}
-
-// Timer Variables
-let timerInterval;
-let timeRemaining = 600; // 10 minutes in seconds
-
-// Function to start the timer
-// Start a 10-minute timer
-function startTimer() {
-    let timeRemaining = 600; // Set to 10 minutes (600 seconds)
-    const timerInterval = setInterval(() => {
-        timeRemaining--;
-        const minutes = Math.floor(timeRemaining / 60);
-        const seconds = timeRemaining % 60;
-
-        // Update the timer display
-        document.getElementById('timer').textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-        // Check if time has run out
-        if (timeRemaining <= 0) {
-            clearInterval(timerInterval);
-            showResult(); // Automatically show result when time is up
-        }
-    }, 1000);
-}
-
-// Stop the timer
-function stopTimer(timerInterval) {
-    clearInterval(timerInterval);
-}
-
-
 // Start Quiz
 startButton.addEventListener('click', () => {
     const name = nameInput.value;
@@ -211,40 +121,84 @@ startButton.addEventListener('click', () => {
         currentQuestionIndex = 0;
         optionSelected = false;
         showQuestion();
-        startTimer(); // Start the timer when the quiz begins
+        startTimer();
     } else {
         alert('Please enter your name!');
     }
 });
 
-// Show Result
-function showResult() {
-    stopTimer(); // Stop the timer when showing the result
-    quizScreen.style.display = 'none';
-    resultScreen.style.display = 'block';
-    const name = nameInput.value;
-    resultText.textContent = `${name}, your score is ${score} out of ${questions.length}.`;
-}
-
-// Restart Quiz
+// Restart
 restartButton.addEventListener('click', () => {
     resultScreen.style.display = 'none';
     startScreen.style.display = 'block';
     nameInput.value = '';
-    stopTimer(); // Ensure timer is stopped before restarting
-    document.getElementById('timer').textContent = 'Time Remaining: 15:00'; // Reset timer display
+    clearInterval(timerInterval);
+    document.getElementById('timer').textContent = 'Time Remaining: 10:00';
 });
 
+// Timer
+function startTimer() {
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        document.getElementById('timer').textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            showResult();
+        }
+    }, 1000);
+}
 
+// Stop Timer
+function stopTimer() {
+    clearInterval(timerInterval);
+}
 
+// Show Result
+function showResult() {
+    stopTimer();
+    quizScreen.style.display = 'none';
+    resultScreen.style.display = 'block';
+    resultScreen.innerHTML = '';
 
+    const name = nameInput.value;
+    const heading = document.createElement('h2');
+    heading.textContent = `${name}, your score is ${score} out of ${questions.length}`;
+    heading.style.marginBottom = '20px';
+    resultScreen.appendChild(heading);
 
+    const attemptsList = document.createElement('ul');
+    attemptsList.classList.add('attempts-list');
 
-// Function to capture and download the result screen as an image
+    questions.forEach((question, index) => {
+        const attemptItem = document.createElement('li');
+        attemptItem.classList.add('attempt-item');
+        const isCorrect = question.selectedOption === question.answer;
+
+        attemptItem.innerHTML = `
+            <strong>Q${index + 1}: ${question.question}</strong><br>
+            <span class="${isCorrect ? 'correct' : 'incorrect'}">
+                Your Answer: ${question.selectedOption || 'Not Answered'}<br>
+                ${!isCorrect ? `Correct Answer: ${question.answer}` : ''}
+            </span>
+        `;
+        attemptsList.appendChild(attemptItem);
+    });
+
+    resultScreen.appendChild(attemptsList);
+
+    const downloadImageButton = document.createElement('button');
+    downloadImageButton.textContent = "Download Result";
+    downloadImageButton.onclick = downloadResultAsImage;
+    downloadImageButton.classList.add('download-btn');
+    resultScreen.appendChild(downloadImageButton);
+}
+
+// Download result as image
 function downloadResultAsImage() {
     const resultElement = document.getElementById('result-screen');
-
-    // Use html2canvas to capture the result screen as an image
     html2canvas(resultElement).then(canvas => {
         const link = document.createElement('a');
         link.href = canvas.toDataURL('image/png');
@@ -253,28 +207,7 @@ function downloadResultAsImage() {
     });
 }
 
-// Show Result (Updated with Download Image Button)
-function showResult() {
-    stopTimer();
-    quizScreen.style.display = 'none';
-    resultScreen.style.display = 'block';
-    const name = nameInput.value;
-    resultText.textContent = `${name}, your score is ${score} out of ${questions.length}.`;
-
-    // Add download result as image button
-    const downloadImageButton = document.createElement('button');
-    downloadImageButton.textContent = "Download Result";
-    downloadImageButton.onclick = downloadResultAsImage;
-    resultScreen.appendChild(downloadImageButton);
-}
-
-window.addEventListener('load', () => {
-    const savedTimer = localStorage.getItem(timerKey);
-    if (savedTimer !== null) {
-        timer = parseInt(savedTimer, 10);
-    }
-    document.getElementById('timer').innerText = `${timer} seconds remaining`;
-    interval = setInterval(updateTimer, 1000);
-});
-
-document.addEventListener('visibilitychange', reloadIfTabSwitched);
+// Optional: Uncomment if you want to redirect to theory.html
+// function goToTheory() {
+//     window.location.href = "theory.html";
+// }
