@@ -1,46 +1,41 @@
-/* Body Styling */
 body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #e9ecef; /* Softer background color */
+  background-color: #e9ecef;
   margin: 0;
 }
 
 #quiz-container {
-  background: #ffffff;
+  background: #fff;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   text-align: center;
   width: 100%;
   max-width: 500px;
   margin: 20px;
 }
 
-/* Heading Style */
 .heading {
   font-size: 24px;
-  color: #007bff; /* Blue color for better contrast */
+  color: #007bff;
   margin-bottom: 10px;
-  text-align: center;
 }
 
-/* Input Styling */
-#name-input {
+#name-input, #password-input, #test-select {
   border: 2px solid #3498db;
   height: 40px;
   width: 100%;
   max-width: 350px;
   font-size: 16px;
-  margin: 15px auto;
+  margin: 10px auto;
   padding: 0 10px;
   border-radius: 8px;
 }
 
-/* Button Styling */
 button {
   padding: 12px 20px;
   background-color: #007bff;
@@ -58,24 +53,22 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Timer */
 #timer {
   margin-top: 10px;
   font-weight: bold;
   color: #555;
 }
 
-/* Question Text */
 #question-text {
-  font-size: 25px;
+  font-size: 22px;
   margin-bottom: 20px;
 }
 
-/* Option Styling */
 .option {
-  font-size: 20px;
+  font-size: 18px;
   padding: 10px;
-  margin: 5px 0;
+  margin: 5px;
+  color: black;
   background-color: #ecf0f1;
   border: 1px solid #bdc3c7;
   border-radius: 5px;
@@ -83,27 +76,10 @@ button:hover {
   transition: background-color 0.3s;
 }
 
-.option:hover {
-  background-color: #dcdcdc;
-}
+.option:hover { background-color: #dcdcdc; }
+.option.correct { background-color: #00ff6a; color: black; }
+.option.incorrect { background-color: #ff1900; color: black; }
 
-.option.correct {
-  background-color: #00ff6a; /* Green for correct answers */
- color: black; 
-}
-
-.option.incorrect {
-  background-color: #ff1900; /* Red for incorrect answers */
-   color: black;
-}
-
-/* Result Screen */
-#result-screen {
-  font-size: 18px;
-  color: #333;
-}
-
-/* Bottom Text */
 .bottom {
   margin-top: 20px;
   font-weight: bold;
@@ -112,53 +88,29 @@ button:hover {
   color: #888;
 }
 
-.btn {
-  margin-top: 20px;
-}
-
-.btn button {
-  background-color: #007bff;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-.btn button:hover {
-  background-color: #0056b3;
-}
-/* resutl */
 .attempts-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .attempt-item {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-left: 5px solid #ccc;
-    background-color: #f9f9f9;
-    border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-left: 5px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 5px;
 }
 
-.correct {
-    color: rgb(0, 255, 0);
-    font-weight: bold;
-}
-
-.incorrect {
-    color: rgb(255, 0, 0);
-    font-weight: bold;
-}
+.correct { color: green; font-weight: bold; }
+.incorrect { color: red; font-weight: bold; }
 
 .download-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
-

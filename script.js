@@ -1,17 +1,24 @@
-// Elements
-const startScreen = document.getElementById('start-screen');
-const quizScreen = document.getElementById('quiz-screen');
-const resultScreen = document.getElementById('result-screen');
-const nameInput = document.getElementById('name-input');
-const startButton = document.getElementById('start-btn');
-const questionText = document.getElementById('question-text');
-const optionsContainer = document.getElementById('options-container');
-const nextButton = document.getElementById('next-btn');
-const resultText = document.getElementById('result-text');
-const restartButton = document.getElementById('restart-btn');
+// Get elements
+const startBtn = document.getElementById("start-btn");
+const nextBtn = document.getElementById("next-btn");
+const quizScreen = document.getElementById("quiz-screen");
+const startScreen = document.getElementById("start-screen");
+const resultScreen = document.getElementById("result-screen");
+const questionText = document.getElementById("question-text");
+const optionsContainer = document.getElementById("options-container");
+const timerDisplay = document.getElementById("timer");
+const nameInput = document.getElementById("name-input");
+const testSelect = document.getElementById("test-select");
 
-// Questions Array
-const questions =[
+let currentQuestionIndex = 0;
+let score = 0;
+let timer;
+let timeLeft = 600; // 10 minutes
+let currentQuestions = [];
+
+// ✅ Question Banks
+const questionBanks = {
+  word: [
   { question: "1. Which shortcut key is used to 'Copy' text in MS Word?", options: ["Ctrl + V", "Ctrl + X", "Ctrl + A", "Ctrl + C"], answer: "Ctrl + C" },
   { question: "2. Which key combination is used to 'Paste' copied text in MS Word?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + Z", "Ctrl + V"], answer: "Ctrl + V" },
   { question: "3. The shortcut key to 'Cut' selected text in MS Word is:", options: ["Ctrl + C", "Ctrl + V", "Ctrl + Y", "Ctrl + X"], answer: "Ctrl + X" },
@@ -42,172 +49,240 @@ const questions =[
   { question: "28. The 'Ruler' option in MS Word can be found under which tab?", options: ["Review", "View", "Insert", "Reference"], answer: "View" },
   { question: "29. How many total pages are there in your MS Word notes?", options: ["22", "23", "25", "26"], answer: "25" },
   { question: "30. Can a computer think and make decisions like a human being?", options: ["yes", "No", "Maybe", "both yes and No"], answer: "No" }
-];
+],
+  excel:[
+    { question: "1. What is the file extension of MS Excel?", options: [".xlsx", ".xlsd", ".docx", ".pptx"], answer: ".xlsx" },
+    { question: "2. What is the shortcut key to insert a new sheet in Excel?", options: ["Ctrl + T", "Shift + F10", "Ctrl + N", "Shift + F11"], answer: "Shift + F11" },
+    { question: "3. What is the total number of rows in the latest version of Excel?", options: ["65536", "16384", "1000000", "1048576"], answer: "1048576" },
+    { question: "4. What is the total number of columns in the latest version of Excel?", options: ["16384", "1048576", "256", "1024"], answer: "16384" },
+    { question: "5. What is the shortcut key to go to the first row/column?", options: ["Ctrl + Up", "Ctrl + Home", "Ctrl + Left", "Ctrl + Down"], answer: "Ctrl + Up" },
+    { question: "6. What key is used to edit a cell?", options: ["F2", "Ctrl + E", "Ctrl + Enter", "Alt + E"], answer: "F2" },
+    { question: "7. What is the shortcut to enter the current date in Excel?", options: ["Ctrl + ;", "Ctrl + Shift + ;", "Alt + ;", "Shift + ;"], answer: "Ctrl + ;" },
+    { question: "8. What is the shortcut for selecting the entire row?", options: ["Ctrl + Space", "Alt + R", "Shift + Space", "Ctrl + A"], answer: "Shift + Space" },
+    { question: "9. What is the shortcut for selecting the entire column?", options: ["Shift + C", "Ctrl + Space", "Ctrl + L", "Alt + C"], answer: "Ctrl + Space" },
+    { question: "10. What is the shortcut for hiding a column?", options: ["Ctrl + Shift + )", "Ctrl + H", "Ctrl + 0", "Ctrl + )"], answer: "Ctrl + )" },
+    { question: "11. What is the shortcut for showing hidden rows?", options: ["Ctrl + Shift + 9", "Alt + R", "Ctrl + (", "Ctrl + Shift + 0"], answer: "Ctrl + Shift + 9" },
+    { question: "12. Which formula is used to calculate percentage in Excel?", options: ["=Sum(M/N*100)", "=M+N*100", "=M/N", "=Sum(M,N)*100"], answer: "=Sum(M/N*100)" },
+    { question: "13. What function is used to remove extra spaces?", options: ["=Trim()", "=Clear()", "=DelSpace()", "=Remove()"], answer: "=Trim()" },
+    { question: "14. What formula assigns a grade of 'A+' if a student scores above 80%?", options: ["=IF(P3>=80,\"A+\")", "=IF(P3>=80,\"A+\",\"B\")", "=IF(P3>80,\"A+\")", "=IF(P3>=80,\"A\")"], answer: "=IF(P3>=80,\"A+\")" },
+    { question: "15. What function returns the middle part of a string?", options: ["=MID()", "=MIDPART()", "=LEFT()", "=RIGHT()"], answer: "=MID()" },
+    { question: "16. Which function counts cells that meet a condition?", options: ["=MatchIf()", "=SumIf()", "=CountIf()", "=IfCount()"], answer: "=CountIf()" },
+    { question: "17. What formula counts non-empty cells?", options: ["=Count()", "=CountA()", "=CountBlank()", "=CountAll()"], answer: "=CountA()" },
+    { question: "18. What formula shows only the integer part of a number?", options: ["=Int()", "=Turnc()", "=Round()", "=Trunc()"], answer: "=Int()" },
+    { question: "19. What function joins values from two cells with a dash?", options: ["=Concatenate(A2,\"-\",B2)", "=Join(A2,B2)", "=Merge()", "=Concat(A2-B2)"], answer: "=Concatenate(A2,\"-\",B2)" },
+    { question: "20. What formula converts all letters in a string to uppercase?", options: ["=Upper()", "=Caps()", "=ToUpper()", "=UCase()"], answer: "=Upper()" },
+    { question: "21. What is the shortcut for 'Find' in Excel?", options: ["Ctrl + S", "Ctrl + G", "Ctrl + H", "Ctrl + F"], answer: "Ctrl + F" },
+    { question: "22. What is the shortcut for 'Replace' in Excel?", options: ["Ctrl + F", "Ctrl + V", "Ctrl + H", "Ctrl + G"], answer: "Ctrl + H" },
+    { question: "23. What shortcut key is used to apply filter?", options: ["Ctrl + Shift + F", "Ctrl + Shift + L", "Alt + D + F + F", "Ctrl + Alt + F"], answer: "Ctrl + Shift + L" },
+    { question: "24. What shortcut fills the right cell with data from the left?", options: ["Ctrl + F", "Ctrl + L", "Ctrl + D", "Ctrl + R"], answer: "Ctrl + R" },
+    { question: "25. What is the shortcut to wrap text in Excel?", options: ["Alt + Enter", "Ctrl + W", "Ctrl + Enter", "Shift + Enter"], answer: "Alt + Enter" },
+    { question: "26. Which function gives the most frequently occurring value?", options: ["=Mean()", "=Mod()", "=Mode()", "=Median()"], answer: "=Mode()" },
+    { question: "27. What function is used to calculate power in Excel?", options: ["=Exponent()", "=Raise()", "=Power()", "=Pow()"], answer: "=Power()" },
+    { question: "28. What function checks if two values are exactly the same?", options: ["=IsEqual()", "=Match()", "=Compare()", "=Exact()"], answer: "=Exact()" },
+    { question: "29. What is the path to apply conditional formatting?", options: ["Home > Conditional Formatting", "Insert > Rules > Condition", "Data > Conditional Formatting", "Home > Format > Cell"], answer: "Home > Conditional Formatting" },
+    { question: "30. What function is used to lookup a value in a table?", options: ["=HLOOKUP()", "=INDEX()", "=SEARCH()", "=VLOOKUP()"], answer: "=VLOOKUP()" }
+  ],
+  powerpoint:[
+  { "question": "1. What is the file extension of PowerPoint files?", "options": [".pptx", ".docx", ".xlsx", ".txt"], "answer": ".pptx" },
+  { "question": "2. What shortcut creates a new slide in PowerPoint?", "options": ["Ctrl + M", "Ctrl + N", "Shift + M", "Ctrl + S"], "answer": "Ctrl + M" },
+  { "question": "3. Which shortcut starts the slideshow from the beginning?", "options": ["F5", "Shift + F5", "Ctrl + S", "Alt + F5"], "answer": "F5" },
+  { "question": "4. What shortcut deletes a slide in PowerPoint?", "options": ["Delete + Backspace", "Ctrl + D", "Alt + Delete", "Ctrl + Backspace"], "answer": "Delete + Backspace" },
+  { "question": "5. What is the shortcut to increase font size?", "options": ["Ctrl + Shift + >", "Ctrl + >", "Shift + >", "Alt + >"], "answer": "Ctrl + Shift + >" },
+  { "question": "6. What is the shortcut to decrease font size?", "options": ["Ctrl + Shift + <", "Alt + <", "Ctrl + <", "Shift + <"], "answer": "Ctrl + Shift + <" },
+  { "question": "7. Which transition is commonly used in PowerPoint?", "options": ["Shred", "Zoom", "Slide", "Snap"], "answer": "Shred" },
+  { "question": "8. Which key shows the current slide in full screen?", "options": ["Shift + F5", "F11", "F8", "Alt + F5"], "answer": "Shift + F5" },
+  { "question": "9. What is the shortcut to go to the first slide?", "options": ["Ctrl + Home", "Home", "Alt + Home", "Shift + Home"], "answer": "Ctrl + Home" },
+  { "question": "10. What shortcut returns to the last slide?", "options": ["Ctrl + End", "Alt + End", "Shift + End", "Ctrl + Down"], "answer": "Ctrl + End" },
+  { "question": "11. How to preview the current slide?", "options": ["Shift + F5", "Alt + P", "Ctrl + F5", "F11"], "answer": "Shift + F5" },
+  { "question": "12. What shortcut groups selected items?", "options": ["Ctrl + G", "Ctrl + Shift + G", "Alt + G", "Ctrl + Alt + G"], "answer": "Ctrl + G" },
+  { "question": "13. What shortcut ungroups items?", "options": ["Ctrl + Shift + G", "Ctrl + U", "Alt + U", "Ctrl + G"], "answer": "Ctrl + Shift + G" },
+  { "question": "14. Which key makes the screen black during a slideshow?", "options": ["B", "K", "Ctrl + B", "Alt + B"], "answer": "B" },
+  { "question": "15. Which key makes the screen white during a slideshow?", "options": ["W", "Ctrl + W", "Alt + W", "Shift + W"], "answer": "W" },
+  { "question": "16. What is the shortcut to erase pen drawings?", "options": ["E", "Ctrl + E", "Shift + E", "Alt + E"], "answer": "E" },
+  { "question": "17. What shortcut turns off the pen tool?", "options": ["ESC", "Ctrl + ESC", "Alt + ESC", "F8"], "answer": "ESC" },
+  { "question": "18. What shortcut changes pen to pointer?", "options": ["Ctrl + A", "Ctrl + P", "Alt + A", "Shift + A"], "answer": "Ctrl + A" },
+  { "question": "19. What key restarts or pauses an automatic show?", "options": ["S", "P", "Shift + S", "Ctrl + S"], "answer": "S" },
+  { "question": "20. How do you go to the previous slide during a show?", "options": ["P", "Ctrl + Left", "Page Up", "Backspace"], "answer": "P" },
+  { "question": "21. What takes you to the first slide during a slideshow?", "options": ["1 + Enter", "Ctrl + Home", "Shift + 1", "Alt + 1"], "answer": "1 + Enter" },
+  { "question": "22. What is a famous transition in PowerPoint?", "options": ["Vortex", "Zoom", "Push", "Cut"], "answer": "Vortex" },
+  { "question": "23. What tool is used for slide background styling?", "options": ["Background Styles", "Fill Tool", "Format Brush", "Slide Master"], "answer": "Background Styles" },
+  { "question": "24. Which shortcut formats superscript text?", "options": ["Ctrl + =", "Ctrl + +", "Alt + =", "Ctrl + Shift + ="], "answer": "Ctrl + =" },
+  { "question": "25. Which shortcut formats subscript text?", "options": ["Ctrl + Shift + +", "Ctrl + +", "Alt + Shift + +", "Ctrl + Alt + Shift"], "answer": "Ctrl + Shift + +" },
+  { "question": "26. What shows or hides the gridlines?", "options": ["Shift + F9", "Ctrl + G", "Alt + F9", "Ctrl + F9"], "answer": "Shift + F9" },
+  { "question": "27. What key combination shows the design tab?", "options": ["Ctrl + D", "Alt + G", "Ctrl + T", "Alt + D"], "answer": "Alt + G" },
+  { "question": "28. Which option adjusts timing in animations?", "options": ["Timing", "Speed", "Duration", "Delay"], "answer": "Timing" },
+  { "question": "29. What is used to fill slide backgrounds?", "options": ["Fill Effect", "Background Color", "Gradient Tool", "Brush Tool"], "answer": "Fill Effect" },
+  { "question": "30. What transition creates a sparkly effect?", "options": ["Glitter", "Shimmer", "Flash", "Fade"], "answer": "Glitter" }
+],
+  inpage: 
+[
+  { "question": "1. What is the shortcut to Auto Save in InPage?", "options": ["Alt + F11", "Ctrl + S", "Ctrl + F11", "Alt + S"], "answer": "Alt + F11" },
+  { "question": "2. What is the shortcut to select all in InPage?", "options": ["Ctrl + A", "Ctrl + Alt + A", "Alt + A", "Ctrl + Shift + A"], "answer": "Ctrl + A" },
+  { "question": "3. What shortcut increases font size?", "options": ["Ctrl + F10", "Ctrl + +", "Ctrl + Shift + >", "Alt + F10"], "answer": "Ctrl + F10" },
+  { "question": "4. What shortcut decreases font size?", "options": ["Ctrl + F9", "Alt + F9", "Ctrl + Shift + <", "Ctrl + -"], "answer": "Ctrl + F9" },
+  { "question": "5. Which key increases word spacing?", "options": ["Ctrl + F5", "Alt + F5", "Ctrl + Shift + 5", "Ctrl + 5"], "answer": "Ctrl + F5" },
+  { "question": "6. Which key decreases word spacing?", "options": ["Ctrl + F6", "Alt + F6", "Ctrl + Shift + F6", "Ctrl + Alt + 6"], "answer": "Ctrl + F6" },
+  { "question": "7. Shortcut for increasing line spacing?", "options": ["Ctrl + Shift + F5", "Ctrl + F5", "Alt + Shift + F5", "Ctrl + Alt + F5"], "answer": "Ctrl + Shift + F5" },
+  { "question": "8. Shortcut for decreasing line spacing?", "options": ["Ctrl + Shift + F6", "Ctrl + F6", "Alt + Shift + F6", "Ctrl + Alt + F6"], "answer": "Ctrl + Shift + F6" },
+  { "question": "9. Move to the right in InPage?", "options": ["Ctrl + Alt + R", "Ctrl + R", "Alt + R", "Ctrl + Shift + R"], "answer": "Ctrl + Alt + R" },
+  { "question": "10. Move to the left in InPage?", "options": ["Ctrl + Alt + L", "Ctrl + L", "Alt + L", "Ctrl + Shift + L"], "answer": "Ctrl + Alt + L" },
+  { "question": "11. Move to center in InPage?", "options": ["Ctrl + Alt + C", "Ctrl + C", "Alt + C", "Ctrl + Shift + C"], "answer": "Ctrl + Alt + C" },
+  { "question": "12. How to make text justified?", "options": ["Ctrl + Alt + J", "Ctrl + J", "Alt + J", "Ctrl + Shift + J"], "answer": "Ctrl + Alt + J" },
+  { "question": "13. Move text up in InPage?", "options": ["Ctrl + F7", "Alt + F7", "Ctrl + Shift + F7", "Ctrl + 7"], "answer": "Ctrl + F7" },
+  { "question": "14. Move text down?", "options": ["Ctrl + F8", "Alt + F8", "Ctrl + Shift + F8", "Ctrl + 8"], "answer": "Ctrl + F8" },
+  { "question": "15. Shortcut for bold text?", "options": ["Ctrl + B", "Alt + B", "Ctrl + Shift + B", "Ctrl + Alt + B"], "answer": "Ctrl + B" },
+  { "question": "16. Shortcut for italic text?", "options": ["Ctrl + I", "Alt + I", "Ctrl + Shift + I", "Ctrl + Alt + I"], "answer": "Ctrl + I" },
+  { "question": "17. Skew text increase?", "options": ["Ctrl + Shift + F7", "Ctrl + F7", "Alt + F7", "Ctrl + Alt + F7"], "answer": "Ctrl + Shift + F7" },
+  { "question": "18. Skew text decrease?", "options": ["Ctrl + Shift + F8", "Ctrl + F8", "Alt + F8", "Ctrl + Alt + F8"], "answer": "Ctrl + Shift + F8" },
+  { "question": "19. Create new page?", "options": ["Alt + Insert", "Ctrl + N", "Shift + Insert", "Ctrl + Insert"], "answer": "Alt + Insert" },
+  { "question": "20. Delete a page?", "options": ["Alt + Delete", "Ctrl + Delete", "Shift + Delete", "Ctrl + Alt + Delete"], "answer": "Alt + Delete" },
+  { "question": "21. Shortcut to go to next page?", "options": ["Alt + Page Down", "Ctrl + Down", "Page Down", "Shift + Page Down"], "answer": "Alt + Page Down" },
+  { "question": "22. Shortcut to go to previous page?", "options": ["Alt + Page Up", "Ctrl + Up", "Page Up", "Shift + Page Up"], "answer": "Alt + Page Up" },
+  { "question": "23. Shortcut to go to first page?", "options": ["Alt + Home", "Ctrl + Home", "Home", "Shift + Home"], "answer": "Alt + Home" },
+  { "question": "24. Shortcut to go to last page?", "options": ["Alt + End", "Ctrl + End", "End", "Shift + End"], "answer": "Alt + End" },
+  { "question": "25. Group items in InPage?", "options": ["Ctrl + Alt + G", "Ctrl + G", "Alt + G", "Ctrl + Shift + G"], "answer": "Ctrl + Alt + G" },
+  { "question": "26. Ungroup items?", "options": ["Ctrl + Alt + U", "Ctrl + U", "Alt + U", "Ctrl + Shift + U"], "answer": "Ctrl + Alt + U" },
+  { "question": "27. Toggle typing language?", "options": ["Ctrl + Space", "Alt + Shift", "Ctrl + Shift + Space", "Alt + Space"], "answer": "Ctrl + Space" },
+  { "question": "28. Export a text file?", "options": ["Ctrl + Alt + Y", "Ctrl + Y", "Alt + Y", "Ctrl + E"], "answer": "Ctrl + Alt + Y" },
+  { "question": "29. Import content into InPage?", "options": ["Ctrl + Y", "Ctrl + I", "Alt + Y", "Ctrl + Alt + Y"], "answer": "Ctrl + Y" },
+  { "question": "30. Open document format settings?", "options": ["Ctrl + F11", "Alt + F11", "Ctrl + Alt + F11", "Ctrl + Shift + F11"], "answer": "Ctrl + F11" }
+]
+};
 
-// Shuffle options
-function shuffleOptions(questions) {
-    questions.forEach(question => {
-        const shuffled = question.options.sort(() => Math.random() - 0.5);
-        if (!shuffled.includes(question.answer)) shuffled.push(question.answer);
-        question.options = shuffled.sort(() => Math.random() - 0.5);
-    });
-}
-shuffleOptions(questions);
+// ✅ Start Quiz
+startBtn.addEventListener("click", () => {
+  const name = nameInput.value.trim();
+  const selectedTest = testSelect.value;
+  if (!name) return alert("Please enter your name!");
+  if (!selectedTest) return alert("Please select a test!");
 
-// Variables
-let currentQuestionIndex = 0;
-let score = 0;
-let optionSelected = false;
-let timerInterval;
-let timeRemaining = 600;
+  currentQuestions = questionBanks[selectedTest];
+  if (!currentQuestions) return alert("Invalid test selection!");
 
-// Show Question
+  startScreen.style.display = "none";
+  quizScreen.style.display = "block";
+  timerDisplay.style.display = "block";
+
+  currentQuestionIndex = 0;
+  score = 0;
+  timeLeft = 600;
+  startTimer();
+  showQuestion();
+});
+
+// ✅ Show Question
 function showQuestion() {
-    const question = questions[currentQuestionIndex];
-    questionText.textContent = question.question;
-    optionsContainer.innerHTML = '';
-    optionSelected = false;
+  const currentQuestion = currentQuestions[currentQuestionIndex];
+  questionText.textContent = currentQuestion.question;
+  optionsContainer.innerHTML = "";
 
-    question.options.forEach(option => {
-        const optionDiv = document.createElement('div');
-        optionDiv.textContent = option;
-        optionDiv.classList.add('option');
-        optionDiv.addEventListener('click', () => selectOption(option, optionDiv));
-        optionsContainer.appendChild(optionDiv);
-    });
-
-    nextButton.style.display = 'none';
+  currentQuestion.options.forEach(option => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.classList.add("option");
+    button.addEventListener("click", () => selectAnswer(button, currentQuestion));
+    optionsContainer.appendChild(button);
+  });
 }
 
-// Select Option
-function selectOption(selectedOption, optionDiv) {
-    if (optionSelected) return;
+// ✅ Select Answer
+function selectAnswer(selectedButton, currentQuestion) {
+  const selectedOption = selectedButton.textContent;
+  currentQuestion.selectedOption = selectedOption;
 
-    const question = questions[currentQuestionIndex];
-    question.selectedOption = selectedOption;
-    optionSelected = true;
+  const allButtons = optionsContainer.querySelectorAll(".option");
+  allButtons.forEach(btn => btn.disabled = true);
 
-    Array.from(optionsContainer.children).forEach(opt => {
-        opt.classList.remove('correct', 'incorrect');
-        if (opt.textContent === question.answer) {
-            opt.classList.add('correct');
-        } else {
-            opt.classList.add('incorrect');
-        }
-    });
-
-    if (selectedOption === question.answer) score++;
-
-    nextButton.style.display = 'block';
+  if (selectedOption === currentQuestion.answer) {
+    selectedButton.classList.add("correct");
+    score++;
+  } else {
+    selectedButton.classList.add("incorrect");
+  }
 }
 
-// Next Question
-nextButton.addEventListener('click', () => {
+// ✅ Next Question
+nextBtn.addEventListener("click", () => {
+  if (currentQuestionIndex < currentQuestions.length - 1) {
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        showResult();
-    }
+    showQuestion();
+  } else {
+    showResult();
+  }
 });
 
-// Start Quiz
-startButton.addEventListener('click', () => {
-    const name = nameInput.value;
-    if (name) {
-        startScreen.style.display = 'none';
-        quizScreen.style.display = 'block';
-        score = 0;
-        currentQuestionIndex = 0;
-        optionSelected = false;
-        showQuestion();
-        startTimer();
-    } else {
-        alert('Please enter your name!');
-    }
-});
-
-// Restart
-restartButton.addEventListener('click', () => {
-    resultScreen.style.display = 'none';
-    startScreen.style.display = 'block';
-    nameInput.value = '';
-    clearInterval(timerInterval);
-    document.getElementById('timer').textContent = 'Time Remaining: 10:00';
-});
-
-// Timer
+// ✅ Timer Function
 function startTimer() {
-    clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
-        timeRemaining--;
-        const minutes = Math.floor(timeRemaining / 60);
-        const seconds = timeRemaining % 60;
-        document.getElementById('timer').textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        if (timeRemaining <= 0) {
-            clearInterval(timerInterval);
-            showResult();
-        }
-    }, 1000);
+  timer = setInterval(() => {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    timerDisplay.textContent = `Time Remaining: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    timeLeft--;
+
+    if (timeLeft < 0) {
+      clearInterval(timer);
+      showResult();
+    }
+  }, 1000);
 }
 
-// Stop Timer
 function stopTimer() {
-    clearInterval(timerInterval);
+  clearInterval(timer);
 }
 
-// Show Result
+// ✅ Show Result (with all answers + download)
 function showResult() {
-    stopTimer();
-    quizScreen.style.display = 'none';
-    resultScreen.style.display = 'block';
-    resultScreen.innerHTML = '';
+  stopTimer();
+  quizScreen.style.display = "none";
+  timerDisplay.style.display = "none";
+  resultScreen.style.display = "block";
+  resultScreen.innerHTML = "";
 
-    const name = nameInput.value;
-    const heading = document.createElement('h2');
-    heading.textContent = `${name}, your score is ${score} out of ${questions.length}`;
-    heading.style.marginBottom = '20px';
-    resultScreen.appendChild(heading);
+  const name = nameInput.value;
+  const heading = document.createElement("h2");
+  heading.textContent = `${name}, your score is ${score} out of ${currentQuestions.length}`;
+  resultScreen.appendChild(heading);
 
-    const attemptsList = document.createElement('ul');
-    attemptsList.classList.add('attempts-list');
+  const resultList = document.createElement("ul");
+  resultList.classList.add("attempts-list");
 
-    questions.forEach((question, index) => {
-        const attemptItem = document.createElement('li');
-        attemptItem.classList.add('attempt-item');
-        const isCorrect = question.selectedOption === question.answer;
+  currentQuestions.forEach((q, i) => {
+    const item = document.createElement("li");
+    const isCorrect = q.selectedOption === q.answer;
+    item.classList.add("attempt-item");
+    item.innerHTML = `
+      <strong>Q${i + 1}: ${q.question}</strong><br>
+      <span class="${isCorrect ? 'correct' : 'incorrect'}">
+        Your Answer: ${q.selectedOption || "Not Answered"}<br>
+        ${!isCorrect ? `Correct Answer: ${q.answer}` : ""}
+      </span>
+    `;
+    resultList.appendChild(item);
+  });
 
-        attemptItem.innerHTML = `
-            <strong>Q${index + 1}: ${question.question}</strong><br>
-            <span class="${isCorrect ? 'correct' : 'incorrect'}">
-                Your Answer: ${question.selectedOption || 'Not Answered'}<br>
-                ${!isCorrect ? `Correct Answer: ${question.answer}` : ''}
-            </span>
-        `;
-        attemptsList.appendChild(attemptItem);
-    });
+  resultScreen.appendChild(resultList);
 
-    resultScreen.appendChild(attemptsList);
+  // ✅ Download Result Button
+  const downloadButton = document.createElement("button");
+  downloadButton.textContent = "Download Result";
+  downloadButton.classList.add("download-btn");
+  downloadButton.addEventListener("click", downloadResultAsImage);
+  resultScreen.appendChild(downloadButton);
 
-    const downloadImageButton = document.createElement('button');
-    downloadImageButton.textContent = "Download Result";
-    downloadImageButton.onclick = downloadResultAsImage;
-    downloadImageButton.classList.add('download-btn');
-    resultScreen.appendChild(downloadImageButton);
+  // ✅ Restart Button
+  const restartButton = document.createElement("button");
+  restartButton.textContent = "Restart Quiz";
+  restartButton.onclick = () => window.location.reload();
+  resultScreen.appendChild(restartButton);
 }
 
-// Download result as image
+// ✅ Download Result as Image
 function downloadResultAsImage() {
-    const resultElement = document.getElementById('result-screen');
-    html2canvas(resultElement).then(canvas => {
-        const link = document.createElement('a');
-        link.href = canvas.toDataURL('image/png');
-        link.download = `${nameInput.value}_quiz_result.png`;
-        link.click();
-    });
+  const resultElement = document.getElementById("result-screen");
+  html2canvas(resultElement).then(canvas => {
+    const link = document.createElement("a");
+    link.href = canvas.toDataURL("image/png");
+    link.download = `${nameInput.value}_Quiz_Result.png`;
+    link.click();
+  });
 }
-
-// Optional: Uncomment if you want to redirect to theory.html
-// function goToTheory() {
-//     window.location.href = "theory.html";
-// }
