@@ -11,39 +11,38 @@ const resultText = document.getElementById('result-text');
 const restartButton = document.getElementById('restart-btn');
 
 // Questions Array
-const questions = [
-    { question: "1. What is the file extension of MS Excel?", options: [".xlsx", ".xlsd", ".docx", ".pptx"], answer: ".xlsx" },
-    { question: "2. What is the shortcut key to insert a new sheet in Excel?", options: ["Ctrl + T", "Shift + F10", "Ctrl + N", "Shift + F11"], answer: "Shift + F11" },
-    { question: "3. What is the total number of rows in the latest version of Excel?", options: ["65536", "16384", "1000000", "1048576"], answer: "1048576" },
-    { question: "4. What is the total number of columns in the latest version of Excel?", options: ["16384", "1048576", "256", "1024"], answer: "16384" },
-    { question: "5. What is the shortcut key to go to the first row/column?", options: ["Ctrl + Up", "Ctrl + Home", "Ctrl + Left", "Ctrl + Down"], answer: "Ctrl + Up" },
-    { question: "6. What key is used to edit a cell?", options: ["F2", "Ctrl + E", "Ctrl + Enter", "Alt + E"], answer: "F2" },
-    { question: "7. What is the shortcut to enter the current date in Excel?", options: ["Ctrl + ;", "Ctrl + Shift + ;", "Alt + ;", "Shift + ;"], answer: "Ctrl + ;" },
-    { question: "8. What is the shortcut for selecting the entire row?", options: ["Ctrl + Space", "Alt + R", "Shift + Space", "Ctrl + A"], answer: "Shift + Space" },
-    { question: "9. What is the shortcut for selecting the entire column?", options: ["Shift + C", "Ctrl + Space", "Ctrl + L", "Alt + C"], answer: "Ctrl + Space" },
-    { question: "10. What is the shortcut for hiding a column?", options: ["Ctrl + Shift + )", "Ctrl + H", "Ctrl + 0", "Ctrl + )"], answer: "Ctrl + )" },
-    { question: "11. What is the shortcut for showing hidden rows?", options: ["Ctrl + Shift + 9", "Alt + R", "Ctrl + (", "Ctrl + Shift + 0"], answer: "Ctrl + Shift + 9" },
-    { question: "12. Which formula is used to calculate percentage in Excel?", options: ["=Sum(M/N*100)", "=M+N*100", "=M/N", "=Sum(M,N)*100"], answer: "=Sum(M/N*100)" },
-    { question: "13. What function is used to remove extra spaces?", options: ["=Trim()", "=Clear()", "=DelSpace()", "=Remove()"], answer: "=Trim()" },
-    { question: "14. What formula assigns a grade of 'A+' if a student scores above 80%?", options: ["=IF(P3>=80,\"A+\")", "=IF(P3>=80,\"A+\",\"B\")", "=IF(P3>80,\"A+\")", "=IF(P3>=80,\"A\")"], answer: "=IF(P3>=80,\"A+\")" },
-    { question: "15. What function returns the middle part of a string?", options: ["=MID()", "=MIDPART()", "=LEFT()", "=RIGHT()"], answer: "=MID()" },
-    { question: "16. Which function counts cells that meet a condition?", options: ["=MatchIf()", "=SumIf()", "=CountIf()", "=IfCount()"], answer: "=CountIf()" },
-    { question: "17. What formula counts non-empty cells?", options: ["=Count()", "=CountA()", "=CountBlank()", "=CountAll()"], answer: "=CountA()" },
-    { question: "18. What formula shows only the integer part of a number?", options: ["=Int()", "=Turnc()", "=Round()", "=Trunc()"], answer: "=Int()" },
-    { question: "19. What function joins values from two cells with a dash?", options: ["=Concatenate(A2,\"-\",B2)", "=Join(A2,B2)", "=Merge()", "=Concat(A2-B2)"], answer: "=Concatenate(A2,\"-\",B2)" },
-    { question: "20. What formula converts all letters in a string to uppercase?", options: ["=Upper()", "=Caps()", "=ToUpper()", "=UCase()"], answer: "=Upper()" },
-    { question: "21. What is the shortcut for 'Find' in Excel?", options: ["Ctrl + S", "Ctrl + G", "Ctrl + H", "Ctrl + F"], answer: "Ctrl + F" },
-    { question: "22. What is the shortcut for 'Replace' in Excel?", options: ["Ctrl + F", "Ctrl + V", "Ctrl + H", "Ctrl + G"], answer: "Ctrl + H" },
-    { question: "23. What shortcut key is used to apply filter?", options: ["Ctrl + Shift + F", "Ctrl + Shift + L", "Alt + D + F + F", "Ctrl + Alt + F"], answer: "Ctrl + Shift + L" },
-    { question: "24. What shortcut fills the right cell with data from the left?", options: ["Ctrl + F", "Ctrl + L", "Ctrl + D", "Ctrl + R"], answer: "Ctrl + R" },
-    { question: "25. What is the shortcut to wrap text in Excel?", options: ["Alt + Enter", "Ctrl + W", "Ctrl + Enter", "Shift + Enter"], answer: "Alt + Enter" },
-    { question: "26. Which function gives the most frequently occurring value?", options: ["=Mean()", "=Mod()", "=Mode()", "=Median()"], answer: "=Mode()" },
-    { question: "27. What function is used to calculate power in Excel?", options: ["=Exponent()", "=Raise()", "=Power()", "=Pow()"], answer: "=Power()" },
-    { question: "28. What function checks if two values are exactly the same?", options: ["=IsEqual()", "=Match()", "=Compare()", "=Exact()"], answer: "=Exact()" },
-    { question: "29. What is the path to apply conditional formatting?", options: ["Home > Conditional Formatting", "Insert > Rules > Condition", "Data > Conditional Formatting", "Home > Format > Cell"], answer: "Home > Conditional Formatting" },
-    { question: "30. What function is used to lookup a value in a table?", options: ["=HLOOKUP()", "=INDEX()", "=SEARCH()", "=VLOOKUP()"], answer: "=VLOOKUP()" }
-  ];
-
+const questions =[
+  { question: "1. Which shortcut key is used to 'Copy' text in MS Word?", options: ["Ctrl + V", "Ctrl + X", "Ctrl + A", "Ctrl + C"], answer: "Ctrl + C" },
+  { question: "2. Which key combination is used to 'Paste' copied text in MS Word?", options: ["Ctrl + C", "Ctrl + X", "Ctrl + Z", "Ctrl + V"], answer: "Ctrl + V" },
+  { question: "3. The shortcut key to 'Cut' selected text in MS Word is:", options: ["Ctrl + C", "Ctrl + V", "Ctrl + Y", "Ctrl + X"], answer: "Ctrl + X" },
+  { question: "4. What is the keyboard shortcut for 'Undo' in MS Word?", options: ["Ctrl + Y", "Ctrl + S", "Ctrl + P", "Ctrl + Z"], answer: "Ctrl + Z" },
+  { question: "5. To 'Save' your document in MS Word, which shortcut key is used?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + Q", "Ctrl + S"], answer: "Ctrl + S" },
+  { question: "6. Which shortcut key is used to 'Print' a document in MS Word?", options: ["Ctrl + Q", "Ctrl + S", "Ctrl + R", "Ctrl + P"], answer: "Ctrl + P" },
+  { question: "7. What would life be like if computers stopped working completely?", options: ["Life would be harder", "life will be easier", "Nothing would change", "Everything stop working"], answer: "Life would be harder" },
+  { question: "8. A person who operates a computer is called a:", options: ["User", "Programmer", "Engineer", "Employee"], answer: "User" },
+  { question: "9. Which shortcut key is used for 'Italic' text in MS Word?", options: ["Ctrl + B", "Ctrl + U", "Ctrl + V", "Ctrl + I"], answer: "Ctrl + I" },
+  { question: "10. To 'Underline' selected text, which keys are pressed?", options: ["Ctrl + B", "Ctrl + I", "Ctrl + N", "Ctrl + U"], answer: "Ctrl + U" },
+  { question: "11. What is the shortcut key for 'Find' command in MS Word?", options: ["Ctrl + H", "Ctrl + G", "Ctrl + E", "Ctrl + F"], answer: "Ctrl + F" },
+  { question: "12. Which shortcut opens the 'Replace' dialog box in MS Word?", options: ["Ctrl + F", "Ctrl + Z", "Ctrl + P", "Ctrl + H"], answer: "Ctrl + H" },
+  { question: "13. To create a 'New Document', which key combination is used?", options: ["Ctrl + O", "Ctrl + S", "Ctrl + D", "Ctrl + N"], answer: "Ctrl + N" },
+  { question: "14. Which shortcut key opens an existing document in MS Word?", options: ["Ctrl + N", "Ctrl + P", "Ctrl + R", "Ctrl + O"], answer: "Ctrl + O" },
+  { question: "15. The shortcut key for 'Redo' in MS Word is:", options: ["Ctrl + Z", "Ctrl + S", "Ctrl + Q", "Ctrl + Y"], answer: "Ctrl + Y" },
+  { question: "16. To 'Increase Font Size' in MS Word, which shortcut is used?", options: ["Ctrl + {", "Ctrl + }", "Ctrl + <", "Ctrl + >"], answer: "Ctrl + }" },
+  { question: "17. Which shortcut key centers the text in MS Word?", options: ["Ctrl + L", "Ctrl + R", "Ctrl + T", "Ctrl + E"], answer: "Ctrl + E" },
+  { question: "18. MS Word is mainly used for:", options: ["Creating Document", "Creating Image", "Creating Information", "None of These"], answer: "Creating Document" },
+  { question: "19. What is the shortcut key for 'Left Align' in MS Word?", options: ["Ctrl + R", "Ctrl + E", "Ctrl + J", "Ctrl + L"], answer: "Ctrl + L" },
+  { question: "20. Which shortcut key inserts an 'EndNote' in MS Word?", options: ["Ctrl + Alt + F", "Ctrl + F", "Ctrl + Alt + D", "Ctrl + D"], answer: "Ctrl + Alt + D" },
+  { question: "21. The shortcut key to 'Create a bullet list' is:", options: ["Ctrl + L", "Ctrl + B", "Ctrl + R", "Ctrl + Shift + L"], answer: "Ctrl + Shift + L" },
+  { question: "22. What is the shortcut key for 'Close Word File'?", options: ["Alt + F4", "Ctrl + f4", "Ctrl + W", "Ctrl + Shift + C"], answer: "Ctrl + W" },
+  { question: "23. To insert a 'Footnote' in MS Word, which keys are pressed?", options: ["Ctrl + Shift + Enter", "Ctrl + B", "Ctrl + U", "Ctrl + Alt + F"], answer: "Ctrl + Alt + F" },
+  { question: "24. What is the shortcut key for 'Superscript' text in MS Word?", options: ["Ctrl + Shift++", "Ctrl ++", "Ctrl + Shift + -", "Ctl+Alt ++"], answer: "Ctrl + Shift++" },
+  { question: "25. A blue wavy line under text in MS Word indicates:", options: ["Common Mistake", "Grammer Mistake", "Spelling Mistake", "Natural Mistake"], answer: "Common Mistake" },
+  { question: "26. The default file extension of MS Word document is:", options: [".doxc", ".docix", ".dcox", ".docx"], answer: ".docx" },
+  { question: "27. In which tab is the 'Watermark' option available?", options: ["Insert", "Design", "Layout", "Draw"], answer: "Design" },
+  { question: "28. The 'Ruler' option in MS Word can be found under which tab?", options: ["Review", "View", "Insert", "Reference"], answer: "View" },
+  { question: "29. How many total pages are there in your MS Word notes?", options: ["22", "23", "25", "26"], answer: "25" },
+  { question: "30. Can a computer think and make decisions like a human being?", options: ["yes", "No", "Maybe", "both yes and No"], answer: "No" }
+];
 
 // Shuffle options
 function shuffleOptions(questions) {
