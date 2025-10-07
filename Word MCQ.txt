@@ -102,6 +102,7 @@ Excel
 
 inpage
 
+
 [
   { "question": "1. What is the shortcut to Auto Save in InPage?", "options": ["Alt + F11", "Ctrl + S", "Ctrl + F11", "Alt + S"], "answer": "Alt + F11" },
   { "question": "2. What is the shortcut to select all in InPage?", "options": ["Ctrl + A", "Ctrl + Alt + A", "Alt + A", "Ctrl + Shift + A"], "answer": "Ctrl + A" },
