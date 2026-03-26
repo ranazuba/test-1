@@ -40,7 +40,7 @@ const questionBanks = {
     { question: "15. Which shortcut key is used for 'Replace'?", options: ["Ctrl + R", "Ctrl + H", "Ctrl + F", "Ctrl + E"], answer: "Ctrl + H" },
     { question: "16. Default font name in MS Word 2016?", options: ["Arial", "Times New Roman", "Calibri", "Verdana"], answer: "Calibri" },
     { question: "17. Which key deletes text to the left of the cursor?", options: ["Delete", "Backspace", "End", "Home"], answer: "Backspace" },
-    { question: "18. To save a document for the first time, use?", options: ["Save", "Save As", "Ctrl + S", "Both A & B"], answer: "Save As" },
+{  question: "18. Which key is used to open the 'Save As' dialog box in MS Word?",  options: ["F12", "Ctrl + S", "Alt + F4", "Ctrl + P"], answer: "F12" }, 
     { question: "19. Where is the Status Bar located?", options: ["Top", "Bottom", "Left", "Right"], answer: "Bottom" },
     { question: "20. Which tab is used to insert Page Numbers?", options: ["Home", "Insert", "Review", "View"], answer: "Insert" },
     { question: "21. Shortcut for 'Bold' is?", options: ["Ctrl + B", "Alt + B", "Shift + B", "Ctrl + Shift + B"], answer: "Ctrl + B" },
