@@ -269,47 +269,38 @@ function showQuestion() {
 }
 
 // 2. SHOW RESULT (With Detailed Review)
-// Is function ko purane dono showQuestion functions se replace kar dein
-function showQuestion() {
-    const q = currentQuestions[currentQuestionIndex];
-    
-    // Question text ke saath number dikhane ke liye
-    questionText.innerHTML = `
-        <div style="color: #1e88e5; font-size: 14px; font-weight: bold; margin-bottom: 10px;">
-            Question ${currentQuestionIndex + 1} of ${currentQuestions.length}
+function showResult() {
+    clearInterval(timer);
+    quizScreen.style.display = "none";
+    timerDisplay.style.display = "none";
+    resultScreen.style.display = "block";
+
+    let detailsHTML = `
+        <h2 style="color: #1e3c72;">Quiz Report Card</h2>
+        <div style="background: #f1f3f5; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <p><strong>Name:</strong> ${nameInput.value}</p>
+            <p><strong>Subject:</strong> ${testSelect.value.toUpperCase()}</p>
+            <p><strong>Score:</strong> ${score} / ${currentQuestions.length}</p>
         </div>
-        ${q.question}
+        <div style="max-height: 400px; overflow-y: auto; text-align: left; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+            <h3>Review Your Answers:</h3>
+            <ol>
     `;
-    
-    optionsContainer.innerHTML = "";
 
-    q.options.forEach(option => {
-        const btn = document.createElement("button");
-        btn.textContent = option;
-        btn.classList.add("option");
-
-        btn.onclick = () => {
-            // IMPORTANT: User ka jawab save karna taake result mein "Skipped" na aaye
-            q.selectedOption = option; 
-
-            // Ek baar click hone par baaki options lock kar dena
-            const allButtons = optionsContainer.querySelectorAll(".option");
-            allButtons.forEach(b => b.disabled = true);
-
-            if (option === q.answer) {
-                btn.classList.add("correct");
-                score++;
-            } else {
-                btn.classList.add("incorrect");
-                // Sahi jawab ko highlight karna taake user ko pata chale sahi kya tha
-                allButtons.forEach(b => {
-                    if (b.textContent === q.answer) b.classList.add("correct");
-                });
-            }
-        };
-        optionsContainer.appendChild(btn);
+    currentQuestions.forEach((q) => {
+        const isCorrect = q.selectedOption === q.answer;
+        detailsHTML += `
+            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 8px;">
+                <strong>${q.question}</strong><br>
+                <span style="color: ${isCorrect ? '#2ecc71' : '#e74c3c'}; font-weight: bold;">
+                    Your Answer: ${q.selectedOption || "Skipped"} ${isCorrect ? '✅' : '❌'}
+                </span><br>
+                <small style="color: #666;">Correct Answer: ${q.answer}</small>
+            </li>
+        `;
     });
-}    detailsHTML += `
+
+    detailsHTML += `
             </ol>
         </div>
         <div style="display: flex; gap: 10px; margin-top: 20px;">
