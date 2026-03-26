@@ -190,8 +190,22 @@ startBtn.addEventListener("click", () => {
 
 // ===== SHOW QUESTION =====
 function showQuestion() {
+  // Check agar questions khatam ho gaye hain (safety check)
+  if (currentQuestionIndex >= currentQuestions.length) {
+    showResult();
+    return;
+  }
+
   const q = currentQuestions[currentQuestionIndex];
-  questionText.textContent = q.question;
+  
+  // Display Question Number & Text
+  questionText.innerHTML = `
+    <div style="color: #1e88e5; font-size: 14px; font-weight: bold; margin-bottom: 10px;">
+      Question ${currentQuestionIndex + 1} of ${currentQuestions.length}
+    </div>
+    ${q.question}
+  `;
+
   optionsContainer.innerHTML = "";
 
   q.options.forEach(option => {
@@ -200,22 +214,27 @@ function showQuestion() {
     btn.classList.add("option");
 
     btn.onclick = () => {
+      // Answer save karna taake result mein "Skipped" na aaye
       q.selectedOption = option;
 
-      document.querySelectorAll(".option").forEach(b => b.disabled = true);
+      const allButtons = optionsContainer.querySelectorAll(".option");
+      allButtons.forEach(b => b.disabled = true);
 
       if (option === q.answer) {
         btn.classList.add("correct");
         score++;
       } else {
         btn.classList.add("incorrect");
+        // Sahi jawab dikhana
+        allButtons.forEach(b => {
+          if (b.textContent === q.answer) b.classList.add("correct");
+        });
       }
     };
 
     optionsContainer.appendChild(btn);
   });
 }
-
 // ===== NEXT =====
 nextBtn.addEventListener("click", () => {
   if (currentQuestionIndex < currentQuestions.length - 1) {
