@@ -180,7 +180,7 @@ startBtn.addEventListener("click", () => {
   quizScreen.style.display = "block";
   timerDisplay.style.display = "block";
 
-  currentQuestionIndex = 0;
+  currentQuestionIndex = 1;
   score = 0;
   timeLeft = 600;
 
