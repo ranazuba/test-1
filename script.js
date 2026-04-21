@@ -14,7 +14,7 @@ const nameInput = document.getElementById("name-input");
 const testSelect = document.getElementById("test-select");
 
 // ===== VARIABLES =====
-let currentQuestionIndex = 0;
+let currentQuestionIndex = -1;
 let score = 0;
 let timer;
 let timeLeft = 600;
