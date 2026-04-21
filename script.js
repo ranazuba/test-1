@@ -164,7 +164,7 @@ startBtn.addEventListener("click", () => {
     return;
   }
 
-  if (password !== "1234") {
+  if (password !== "2266") {
     alert("Wrong password!");
     return;
   }
